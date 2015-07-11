@@ -1,6 +1,6 @@
 package entidades;
 
-public abstract class Consumidor {
+public class Consumidor {
 	private int id;
 	private String nome;
 	private int matricula;
@@ -10,6 +10,7 @@ public abstract class Consumidor {
 	private CPF cpf;
 	
 	public Consumidor(int id, String nome, int matricula, int anoIngresso, Sexo sexo, Titulo titulo, CPF cpf) {
+		this.id = id;
 		this.nome = nome;
 		this.matricula = matricula;
 		this.anoIngresso = anoIngresso;

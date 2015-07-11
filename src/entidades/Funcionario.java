@@ -5,7 +5,7 @@ public class Funcionario extends Consumidor{
 	private Departamento departamento;
 
 	public Funcionario(int id,String nome, int matricula, int anoIngresso, Sexo sexo, Titulo titulo, CPF cpf, Departamento departamento) {
-		super(nome, matricula, anoIngresso, sexo, titulo, cpf);
+		super(id,nome, matricula, anoIngresso, sexo, titulo, cpf);
 		this.departamento = departamento;
 	}
 	
