@@ -8,9 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import controladores.ccu.GerirDepartamento;
-import controladores.ccu.exceptions.DepartamentoNotFound;
-import entidades.value_objects.DepartamentoVO;
+import controladores.ccu.exceptions.DepartamentoNotFoundException;
 
 @WebServlet("/AtualizarDepartamento")
 public class AtualizarDepartamento extends HttpServlet {
@@ -35,7 +33,7 @@ public class AtualizarDepartamento extends HttpServlet {
 					DepartamentoVO departamentoAntigo = GerirDepartamento.buscarDepartamento(request.getSession(),request.getParameter("sigla"));
 					request.setAttribute("departamento antigo",departamentoAntigo);
 					request.getRequestDispatcher("WEB-INF/AtualizarDepartamento.jsp").forward(request,response);
-				} catch (DepartamentoNotFound e2) {
+				} catch (DepartamentoNotFoundException e2) {
 					request.setAttribute("erro", "O departamento informado nao existe");
 					request.getRequestDispatcher("WEB-INF/AtualizarDepartamento.jsp").forward(request,response);
 				}				
@@ -55,7 +53,7 @@ public class AtualizarDepartamento extends HttpServlet {
 				GerirDepartamento.atualizarDepartamento(request.getSession(), nome, sigla);
 				request.getRequestDispatcher("ListarDepartamento").forward(request,response);
 				
-			} catch (DepartamentoNotFound e2) {
+			} catch (DepartamentoNotFoundException e2) {
 				request.setAttribute("erro", "O departamento informado nao existe");
 				request.getRequestDispatcher("WEB-INF/AtualizarDepartamento.jsp").forward(request,response);
 			}			

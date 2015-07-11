@@ -9,13 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import controladores.ccu.GerirCurso;
-import controladores.ccu.GerirDepartamento;
-import controladores.ccu.exceptions.CursoNotFound;
-import controladores.ccu.exceptions.DepartamentoNotFound;
+import controladores.ccu.exceptions.CursoNotFoundException;
 import entidades.Curso;
-import entidades.value_objects.CursoVO;
-import entidades.value_objects.DepartamentoVO;
 
 @WebServlet("/VerCurso")
 public class VerCurso extends HttpServlet {
@@ -37,7 +32,7 @@ public class VerCurso extends HttpServlet {
 					cursoAntigo = GerirCurso.buscarCurso(request.getSession(),request.getParameter("sigla"));
 					request.setAttribute("curso antigo",cursoAntigo);
 					request.getRequestDispatcher("WEB-INF/VerCurso.jsp").forward(request,response);
-				} catch (CursoNotFound e) {
+				} catch (CursoNotFoundException e) {
 					request.setAttribute("erro", "Curso não existe!");
 					request.getRequestDispatcher("WEB-INF/VerCurso.jsp").forward(request,response);
 				}				

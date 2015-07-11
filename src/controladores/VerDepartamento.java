@@ -8,9 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import controladores.ccu.GerirDepartamento;
-import controladores.ccu.exceptions.DepartamentoNotFound;
-import entidades.value_objects.DepartamentoVO;
+import controladores.ccu.exceptions.DepartamentoNotFoundException;
 
 @WebServlet("/VerDepartamento")
 public class VerDepartamento extends HttpServlet {
@@ -32,7 +30,7 @@ public class VerDepartamento extends HttpServlet {
 				departamentoAntigo = GerirDepartamento.buscarDepartamento(request.getSession(),request.getParameter("sigla"));
 				request.setAttribute("departamento antigo",departamentoAntigo);
 				request.getRequestDispatcher("WEB-INF/VerDepartamento.jsp").forward(request,response);
-			} catch (DepartamentoNotFound e) {
+			} catch (DepartamentoNotFoundException e) {
 				request.setAttribute("erro", "Departamento não existe!");
 				request.getRequestDispatcher("WEB-INF/VerDepartamento.jsp").forward(request,response);
 			}

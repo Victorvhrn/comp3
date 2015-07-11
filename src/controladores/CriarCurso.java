@@ -1,22 +1,11 @@
 package controladores;
 
 import java.io.IOException;
-import java.util.Set;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
-
-import controladores.ccu.exceptions.DepartamentoNotFound;
-import controladores.ccu.exceptions.NomeNotFoundException;
-import controladores.ccu.exceptions.SiglaAlreadyExistsException;
-import controladores.ccu.exceptions.SiglaNotFoundException;
-import entidades.Curso;
-import entidades.Departamento;
 
 
 @WebServlet("/CriarCurso")

@@ -9,17 +9,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import controladores.ccu.GerirCurso;
-import controladores.ccu.GerirDepartamento;
-import controladores.ccu.exceptions.CursoNotFound;
-import controladores.ccu.exceptions.DepartamentoNotFound;
+import controladores.ccu.exceptions.CursoNotFoundException;
+import controladores.ccu.exceptions.DepartamentoNotFoundException;
 import controladores.ccu.exceptions.NomeNotFoundException;
 import controladores.ccu.exceptions.SiglaAlreadyExistsException;
 import controladores.ccu.exceptions.SiglaNotFoundException;
 import entidades.Curso;
 import entidades.Departamento;
-import entidades.value_objects.CursoVO;
-import entidades.value_objects.DepartamentoVO;
 
 @WebServlet("/AtualizarCurso")
 public class AtualizarCurso extends HttpServlet {
@@ -48,7 +44,7 @@ public class AtualizarCurso extends HttpServlet {
 					CursoVO cursoAntigo = GerirCurso.buscarCurso(request.getSession(),request.getParameter("sigla"));
 					request.setAttribute("curso antigo",cursoAntigo);
 					request.getRequestDispatcher("WEB-INF/AtualizarCurso.jsp").forward(request,response);
-				} catch (CursoNotFound e2) {
+				} catch (CursoNotFoundException e2) {
 					request.setAttribute("erro", "O curso informado nao existe");
 					request.getRequestDispatcher("WEB-INF/AtualizarCurso.jsp").forward(request,response);
 				}	
@@ -68,10 +64,10 @@ public class AtualizarCurso extends HttpServlet {
 				GerirCurso.atualizarCurso(request.getSession(), nome, sigla, request.getParameter("departamento"));
 				request.setAttribute("message", "Novo curso criado!");
 				request.getRequestDispatcher("ListarCurso").forward(request,response);
-			}catch (DepartamentoNotFound e) {
+			}catch (DepartamentoNotFoundException e) {
 				request.setAttribute("erro", "Informe um departamento valido");
 				request.getRequestDispatcher("WEB-INF/CriarCurso.jsp").forward(request,response);
-			} catch (CursoNotFound e) {
+			} catch (CursoNotFoundException e) {
 				request.setAttribute("erro", "O curso informado nao existe");
 				request.getRequestDispatcher("WEB-INF/CriarCurso.jsp").forward(request,response);
 			}			
