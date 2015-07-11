@@ -14,16 +14,12 @@ public class DMDepartamento extends AbstractMapper<Departamento> {
 
 	@Override
 	public void insert(Departamento elemento) throws SQLException {
-		//Exemplo:
-		String sql = "query de inserir departamento"+elemento.getNome()+elemento.getSigla();
-		//connection.execute(sql);
+		// TODO Auto-generated method stub
 	}
 
 	@Override
-	public void update(Departamento elemento) {
-		//Exemplo
-		String sql = "query de atualizar departamento"+elemento.getId();
-		
+	public void update(int id,Departamento elemento) {
+		// TODO Auto-generated method stub
 	}
 
 	@Override
@@ -33,9 +29,14 @@ public class DMDepartamento extends AbstractMapper<Departamento> {
 	}
 
 	@Override
-	public Collection<Departamento> select(String filtro, Collection<Object> params) {
+	public Collection<Departamento> selectAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
+	@Override
+	public Departamento selectById(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

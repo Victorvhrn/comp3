@@ -55,4 +55,19 @@ public abstract class Consumidor {
 		return cpf;
 	}
 	
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	
+	public void setMatricula(int matricula) {
+		this.matricula = matricula;
+	}
+	
+	public void setSexo(Sexo sexo) {
+		this.sexo = sexo;
+	}
+	
+	public void setAnoIngresso(int anoIngresso) {
+		this.anoIngresso = anoIngresso;
+	}
 }

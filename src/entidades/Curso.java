@@ -5,14 +5,14 @@ public class Curso {
 	private int id;
 	private String nome;
 	private String sigla;
+	private Departamento departamento;
 	
-	public Curso(String nome,String sigla) {
-		// TODO Auto-generated constructor stub
+	public Curso(String nome,String sigla,Departamento departamento) {
 		this.nome = nome;
 		this.sigla = sigla;
+		this.departamento = departamento;
 	}
-	public Curso(int id,String nome,String sigla) {
-		// TODO Auto-generated constructor stub
+	public Curso(int id,String nome,String sigla,Departamento departamento) {
 		this.id = id;
 		this.nome = nome;
 		this.sigla = sigla;
@@ -27,6 +27,9 @@ public class Curso {
 	}
 	public String getSigla(){
 		return sigla;
+	}
+	public Departamento getDepartamento() {
+		return departamento;
 	}
 
 }
