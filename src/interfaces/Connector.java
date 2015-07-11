@@ -21,5 +21,16 @@ public class Connector {
 		}
 		
 	}
+	
+	public void close(){
+		
+		try {
+			connector.close();
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		}
+		
+	}
 
 }

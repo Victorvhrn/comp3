@@ -1,64 +1,41 @@
 package mapeadores;
 
 import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.List;
+import java.util.Collection;
 
 import entidades.Departamento;
 
-public class DMDepartamento extends AbstractMapper {
+public class DMDepartamento extends AbstractMapper<Departamento> {
+
+	public DMDepartamento() throws SQLException {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	@Override
-	public void insert(Object elemento) {
-		Departamento depto = (Departamento) elemento;
-		
-		try {
-			stmt = connection.prepareStatement("insert into departamento(nome)");
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
+	public void insert(Departamento elemento) throws SQLException {
+		//Exemplo:
+		String sql = "query de inserir departamento"+elemento.getNome()+elemento.getSigla();
+		//connection.execute(sql);
+	}
+
+	@Override
+	public void update(Departamento elemento) {
+		//Exemplo
+		String sql = "query de atualizar departamento"+elemento.getId();
 		
 	}
 
 	@Override
-	protected String query(String query) {
-		HashMap<String,String>  querys = new HashMap<String,String>();
-		querys.put("select all departamentos", "select * from departamento");
+	public void delete(Departamento elem) {
+		// TODO Auto-generated method stub
 		
-		String sql = querys.get(query);
-		return sql;
 	}
 
 	@Override
-	public List execute(String query, List params) {
-		
-		String sql = query(query);
-		
-		try {
-			stmt = connection.prepareStatement(sql);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		
-		
-			
-		
-		
+	public Collection<Departamento> select(String filtro, Collection<Object> params) {
+		// TODO Auto-generated method stub
 		return null;
-	}
-
-	@Override
-	public void update(Object elem) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void delete(Object elem) {
-		// TODO Auto-generated method stub
-		
 	}
 
 }

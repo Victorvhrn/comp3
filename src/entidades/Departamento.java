@@ -1,35 +1,31 @@
 package entidades;
 
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
-
-import javax.servlet.http.HttpSession;
-
-import persistencia.RepositorioDepartamento;
-import entidades.value_objects.DepartamentoVO;
-
 public class Departamento {
-
-	public static Collection<DepartamentoVO> _listarDepartamentosDisponiveis(HttpSession session){
-		RepositorioDepartamento repositorio = new RepositorioDepartamento(session);
-		return 	repositorio.listar();
-	}
-
-	// metodos de persistencia para Departamento
+	private int id;
+	private String nome;
+	private String sigla;
 	
-	public static void _adicionarDepartamento(HttpSession session, DepartamentoVO dpto) {
-		RepositorioDepartamento repositorio = new RepositorioDepartamento(session);
-		repositorio.adicionar(dpto);
+	public Departamento(String nome, String sigla) {
+		// TODO Auto-generated constructor stub
+		this.nome = nome;
+		this.sigla = sigla;
 	}
-
-	public static DepartamentoVO _buscarDepartamento(HttpSession session, String sigla) {
-		RepositorioDepartamento repositorio = new RepositorioDepartamento(session);
-		return 	repositorio.buscar(new DepartamentoVO(null,sigla));
+	public Departamento(int id, String nome, String sigla) {
+		// TODO Auto-generated constructor stub
+		this.id = id;
+		this.nome = nome;
+		this.sigla = sigla;
 	}
-
-	public static void _atualizarDepartamento (HttpSession session, DepartamentoVO dpto){
-		RepositorioDepartamento repositorio = new RepositorioDepartamento(session);
-		repositorio.atualizar(new DepartamentoVO(null,dpto.getSigla()), dpto);
+	
+	public int getId(){
+		return id;
+	}
+	
+	public String getNome() {
+		return nome;
+	}
+	
+	public String getSigla() {
+		return sigla;
 	}
 }

@@ -1,10 +1,7 @@
 package entidades;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Date;
-
 public abstract class Consumidor {
+	private int id;
 	private String nome;
 	private int matricula;
 	private int anoIngresso;
@@ -12,17 +9,26 @@ public abstract class Consumidor {
 	private Titulo titulo;
 	private CPF cpf;
 	
-	public Consumidor(String nome, int matricula, int anoIngresso) {
+	public Consumidor(int id, String nome, int matricula, int anoIngresso, Sexo sexo, Titulo titulo, CPF cpf) {
 		this.nome = nome;
 		this.matricula = matricula;
 		this.anoIngresso = anoIngresso;
-	}
-
-	public Consumidor(String nome, int matricula, int anoIngresso, Sexo sexo, Titulo titulo, CPF cpf) {
-		this(nome,matricula,anoIngresso);
 		this.sexo = sexo;
 		this.titulo = titulo;
 		this.cpf = cpf;
+	}
+	
+	public Consumidor(String nome, int matricula, int anoIngresso, Sexo sexo, Titulo titulo, CPF cpf) {
+		this.nome = nome;
+		this.matricula = matricula;
+		this.anoIngresso = anoIngresso;
+		this.sexo = sexo;
+		this.titulo = titulo;
+		this.cpf = cpf;
+	}
+	
+	public int getId() {
+		return id;
 	}
 
 	public String getNome() {

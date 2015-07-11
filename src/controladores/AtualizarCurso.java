@@ -29,7 +29,7 @@ public class AtualizarCurso extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		String acao = (String) request.getParameter("acaoAtualizar");
-		Collection<DepartamentoVO> departamentosDisponiveis = GerirDepartamento.listarDepartamentos(request.getSession());
+		Collection<Departamento> departamentosDisponiveis = GerirDepartamento.listarDepartamentos(request.getSession());
 		request.setAttribute("departamentosDisponiveis", departamentosDisponiveis);
 		
 		if (acao == null)

@@ -1,21 +1,15 @@
 package entidades;
 
-import entidades.value_objects.CursoVO;
 
 public class Aluno extends Consumidor{
-	private CursoVO curso;
+	private Curso curso;
 
-	public Aluno(String nome, int matricula, int anoIngresso, CursoVO curso) {
-		super(nome, matricula, anoIngresso);
+	public Aluno(int id,String nome, int matricula, int anoIngresso, Sexo sexo, Titulo titulo, CPF cpf, Curso curso) {
+		super(id,nome,matricula,anoIngresso,sexo,titulo,cpf);
 		this.curso = curso;
 	}
 	
-	public Aluno(String nome, int matricula, int anoIngresso, Sexo sexo, Titulo titulo, CPF cpf, CursoVO curso) {
-		super(nome, matricula, anoIngresso, sexo, titulo, cpf);
-		this.curso = curso;
-	}
-	
-	public CursoVO getCurso() {
+	public Curso getCurso() {
 		return curso;
 	}
 }
