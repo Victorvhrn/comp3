@@ -1,19 +1,42 @@
 package entidades;
 
+import controladores.ccu.exceptions.CPFIncompletoException;
+import controladores.ccu.exceptions.CPFInvalidoException;
+
 public class CPF {
 	
 	private int[] digitos;
 	
-	public CPF(int... digitos) throws Exception {
+	public CPF(int... digitos) throws CPFInvalidoException, CPFIncompletoException{
 		if (digitos.length != 11){
-			throw new Exception("O CPF deve conter 11 digitos!");
-			// tambem podemos validar os calculos do dv aqui!
+			throw new CPFIncompletoException(this.toString());
 		}else{
 			// usando o clone = nao permitir alteracoes externas a classe CPF nos valores do array
 			this.digitos = digitos.clone();
+			if(!this.cpfValido())
+				throw new CPFInvalidoException(this.toString());
 		}
 	}
 	
+	private boolean cpfValido() {
+		int[] dv = getListaDigitosVerificadores();
+		int[] v = new int[2];
+		
+		v[0] = digitos[0]+2*digitos[1]+3*digitos[2];
+		v[0] += 4*digitos[3]+5*digitos[4]+6*digitos[5];
+		v[0] += 7*digitos[6]+8*digitos[7]+9*digitos[8];
+		v[0] = v[0] % 11;
+		v[0] = v[0] % 10;
+		
+		v[1] = digitos[0]+2*digitos[1]+3*digitos[2];
+		v[1] += 4*digitos[3]+5*digitos[4]+6*digitos[5];
+		v[1] += 7*digitos[6]+8*digitos[7]+9*digitos[8];
+		v[1] = v[1] % 11;
+		v[1] = v[1] % 10;
+		
+		return v[0] == dv[0] && v[1] == dv[1];
+	}
+
 	public int getDigitosVerificadores(){
 		return digitos[9]*10 + digitos[10];
 	}

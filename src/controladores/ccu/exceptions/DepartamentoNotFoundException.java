@@ -1,17 +1,17 @@
 package controladores.ccu.exceptions;
 
-public class SiglaNotFoundException extends Exception {
-
+public class DepartamentoNotFoundException extends Exception {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	public SiglaNotFoundException() {
+	
+	public DepartamentoNotFoundException() {
 		// TODO Auto-generated constructor stub
-		super("O campo sigla não foi preenchido.");
+		super("Departamento não encontrado.");
 	}
 	
-	public boolean equals(SiglaNotFoundException e) {
+	public boolean equals(DepartamentoNotFoundException e) {
 		// TODO Auto-generated method stub
 		return getMessage().equals(e.getMessage());
 	}

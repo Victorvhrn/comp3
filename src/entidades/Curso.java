@@ -1,5 +1,8 @@
 package entidades;
 
+import controladores.ccu.exceptions.NomeNotFoundException;
+import controladores.ccu.exceptions.SiglaNotFoundException;
+
 
 public class Curso {
 	private int id;
@@ -7,11 +10,12 @@ public class Curso {
 	private String sigla;
 	private Departamento departamento;
 	
-	public Curso(String nome,String sigla,Departamento departamento) {
-		this.nome = nome;
-		this.sigla = sigla;
+	public Curso(String nome,String sigla,Departamento departamento) throws NomeNotFoundException, SiglaNotFoundException {
+		this.nome = validarNome(nome);
+		this.sigla = validarSigla(sigla);
 		this.departamento = departamento;
 	}
+
 	public Curso(int id,String nome,String sigla,Departamento departamento) {
 		this.id = id;
 		this.nome = nome;
@@ -30,6 +34,27 @@ public class Curso {
 	}
 	public Departamento getDepartamento() {
 		return departamento;
+	}
+	
+	private String validarNome(String nome) throws NomeNotFoundException {
+		if(nome == null || nome.equals("")){
+			throw new NomeNotFoundException();
+		}else{
+			return nome;
+		}
+	}
+	
+	private String validarSigla(String sigla) throws SiglaNotFoundException {
+		if(nome == null || nome.equals("")){
+			throw new SiglaNotFoundException();
+		}else{
+			return nome;
+		}
+	}
+	
+	public boolean equals(Curso c) {
+		// TODO Auto-generated method stub
+		return sigla.equals(c.sigla);
 	}
 
 }

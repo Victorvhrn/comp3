@@ -1,5 +1,7 @@
 package entidades;
 
+import controladores.ccu.exceptions.NomeNotFoundException;
+
 public class Consumidor {
 	private int id;
 	private String nome;
@@ -9,9 +11,9 @@ public class Consumidor {
 	private Titulo titulo;
 	private CPF cpf;
 	
-	public Consumidor(int id, String nome, int matricula, int anoIngresso, Sexo sexo, Titulo titulo, CPF cpf) {
+	public Consumidor(int id, String nome, int matricula, int anoIngresso, Sexo sexo, Titulo titulo, CPF cpf) throws NomeNotFoundException {
 		this.id = id;
-		this.nome = nome;
+		this.nome = validarNome(nome);
 		this.matricula = matricula;
 		this.anoIngresso = anoIngresso;
 		this.sexo = sexo;
@@ -19,6 +21,8 @@ public class Consumidor {
 		this.cpf = cpf;
 	}
 	
+
+
 	public Consumidor(String nome, int matricula, int anoIngresso, Sexo sexo, Titulo titulo, CPF cpf) {
 		this.nome = nome;
 		this.matricula = matricula;
@@ -70,5 +74,17 @@ public class Consumidor {
 	
 	public void setAnoIngresso(int anoIngresso) {
 		this.anoIngresso = anoIngresso;
+	}
+	
+	private String validarNome(String nome) throws NomeNotFoundException{
+		if(nome == null || nome.equals("")){
+			throw new NomeNotFoundException();
+		}else{
+			return nome;
+		}
+	}
+	
+	public boolean equals(Consumidor c) {
+		return cpf == c.cpf;	
 	}
 }

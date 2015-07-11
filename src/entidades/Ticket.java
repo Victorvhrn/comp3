@@ -38,4 +38,9 @@ public class Ticket {
 	public Refeicao getRefeicao() {
 		return refeicao;
 	}
+
+	public boolean equals(Ticket t) {
+		// TODO Auto-generated method stub
+		return consumidor == t.consumidor && refeicao == t.refeicao;
+	}
 }
