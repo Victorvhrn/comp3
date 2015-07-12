@@ -19,9 +19,8 @@ public class Connector {
 				e.printStackTrace();
 			}
 			
-		   return  DriverManager.getConnection(
-						"jdbc:h2:file:~/test",
-						"sa","");
+			connector = DriverManager.getConnection("jdbc:h2:file:~/comp3","sa","");
+			return  connector;
 			
 		}else{
 			return connector;
