@@ -1,0 +1,37 @@
+07-11 12:53:59 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM INFORMATION_SCHEMA.TABLES INFORMATION_SCHEMA.[*]TABLES "; SQL statement:
+select * from INFORMATION_SCHEMA.TABLES INFORMATION_SCHEMA.TABLES [42000-187]
+07-11 13:20:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Unknown data type: "PAGO"; SQL statement:
+create table ticket(
+	id serial not null,
+	boolean pago not null,
+	consumidor_id integer not null,
+	refeicao_id integer not null,
+	primary key(id),
+	foreign key(consumidor_id) references consumidor(id),
+	foreign key(refeicao_id) references refeicao(id)
+) [50004-187]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.command.Parser.parseColumnWithType(Parser.java:4000)
+	at org.h2.command.Parser.parseColumnForTable(Parser.java:3863)
+	at org.h2.command.Parser.parseCreateTable(Parser.java:5771)
+	at org.h2.command.Parser.parseCreate(Parser.java:4159)
+	at org.h2.command.Parser.parsePrepared(Parser.java:350)
+	at org.h2.command.Parser.parse(Parser.java:305)
+	at org.h2.command.Parser.parse(Parser.java:277)
+	at org.h2.command.Parser.prepareCommand(Parser.java:242)
+	at org.h2.engine.Session.prepareLocal(Session.java:461)
+	at org.h2.engine.Session.prepareCommand(Session.java:403)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1189)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:170)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:158)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1390)
+	at org.h2.server.web.WebApp.query(WebApp.java:1063)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1025)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1012)
+	at org.h2.server.web.WebThread.process(WebThread.java:168)
+	at org.h2.server.web.WebThread.run(WebThread.java:93)
+	at java.lang.Thread.run(Unknown Source)
