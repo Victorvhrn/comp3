@@ -3,7 +3,6 @@ package mapeadores;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -64,5 +63,22 @@ public class DMDepartamento extends AbstractMapper<Departamento> {
 		Departamento dpto = new Departamento( rs.getInt("id"),
 					rs.getString("nome"),rs.getString("sigla"));
 		return dpto;
+	}
+
+	@Override
+	public Collection<Departamento> selectByCampo(String campo, String valor) throws SQLException {
+		String sql = "select * from departamento where ? = ?";
+		PreparedStatement stmt = connection.prepareStatement(sql);
+		stmt.setString(1, campo);
+		stmt.setString(2,valor);
+		ResultSet rs = stmt.executeQuery();
+		ArrayList<Departamento> result = new ArrayList<Departamento>();
+		while(rs.next()){
+			int id = rs.getInt("id");
+			String nome = rs.getString("nome");
+			String sigla = rs.getString("sigla");
+			result.add(new Departamento(id,nome,sigla));
+		}
+		return result;
 	}
 }
