@@ -10,6 +10,7 @@ public class Departamento {
 	
 	public Departamento(String nome, String sigla) throws NomeNotFoundException, SiglaNotFoundException {
 		// TODO Auto-generated constructor stub
+		System.out.println("Construtor: "+nome+" "+sigla);
 		this.nome = validarNome(nome);
 		this.sigla = validarSigla(sigla);
 	}
@@ -42,10 +43,10 @@ public class Departamento {
 	}
 	
 	private String validarSigla(String sigla) throws SiglaNotFoundException {
-		if(nome == null || nome.equals("")){
+		if(sigla == null || sigla.equals("")){
 			throw new SiglaNotFoundException();
 		}else{
-			return nome;
+			return sigla;
 		}
 	}
 

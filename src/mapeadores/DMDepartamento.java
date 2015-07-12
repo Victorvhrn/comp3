@@ -19,7 +19,7 @@ public class DMDepartamento extends AbstractMapper<Departamento> {
 		String sql = "insert into departamento (nome,sigla) values (?,?)";
 		PreparedStatement stmt = connection.prepareStatement(sql);
 		stmt.setString(1, depto.getNome());
-		stmt.setString(1, depto.getSigla());
+		stmt.setString(2, depto.getSigla());
 		stmt.execute();
 	}
 
@@ -28,7 +28,7 @@ public class DMDepartamento extends AbstractMapper<Departamento> {
 		String sql = "update departamento set nome = ?, sigla = ? where id = ?";
 		PreparedStatement stmt = connection.prepareStatement(sql);
 		stmt.setString(1, depto.getNome());
-		stmt.setString(1, depto.getSigla());
+		stmt.setString(2, depto.getSigla());
 		stmt.setInt(3, id);
 		stmt.execute();
 	}
