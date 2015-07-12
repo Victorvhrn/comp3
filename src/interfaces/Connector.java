@@ -12,8 +12,15 @@ public class Connector {
 		
 		if(connector == null){
 			
+			try {
+				Class.forName("org.h2.Driver");
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
 		   return  DriverManager.getConnection(
-						"jdbc:h2:file:~/comp3",
+						"jdbc:h2:file:~/test",
 						"sa","");
 			
 		}else{

@@ -3,7 +3,6 @@ package mapeadores;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Collection;
-import entidades.Departamento;
 import interfaces.Connector;
 
 public abstract class AbstractMapper<T> {
@@ -23,7 +22,9 @@ public abstract class AbstractMapper<T> {
 	
 	public abstract Collection<T> selectAll() throws SQLException;
 	
-	public abstract Departamento selectById(int id) throws SQLException;
+	public abstract T selectById(int id) throws SQLException;
+	
+	public abstract Collection<T> selectByCampo(String campo, String valor) throws SQLException;
 	
 	public void close() throws SQLException{
 		connection.close();

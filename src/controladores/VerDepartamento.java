@@ -16,24 +16,6 @@ public class VerDepartamento extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		String acao = (String) request.getParameter("acaoVer");
-		if (acao == null)
-			acao = "";
-
-		switch (acao) {
-			case "Voltar":
-				request.getRequestDispatcher("ListarDepartamento").forward(request,response);
-				break;
-			default:
-			DepartamentoVO departamentoAntigo;
-			try {
-				departamentoAntigo = GerirDepartamento.buscarDepartamento(request.getSession(),request.getParameter("sigla"));
-				request.setAttribute("departamento antigo",departamentoAntigo);
-				request.getRequestDispatcher("WEB-INF/VerDepartamento.jsp").forward(request,response);
-			} catch (DepartamentoNotFoundException e) {
-				request.setAttribute("erro", "Departamento não existe!");
-				request.getRequestDispatcher("WEB-INF/VerDepartamento.jsp").forward(request,response);
-			}
-		}
+	
 	}
 }

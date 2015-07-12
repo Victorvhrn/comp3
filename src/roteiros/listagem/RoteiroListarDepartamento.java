@@ -7,8 +7,10 @@ import java.util.Collection;
 import controladores.ccu.exceptions.BancoException;
 import mapeadores.DMDepartamento;
 import entidades.Departamento;
+import interfaces.RoteiroListagem;
 
-public class RoteiroListarDepartamento {
+
+public class RoteiroListarDepartamento implements RoteiroListagem<Departamento>{
 	public Collection<Departamento> execute() throws BancoException{
 		DMDepartamento dmDepto;
 		ArrayList<Departamento> resultado = new ArrayList<Departamento>();
