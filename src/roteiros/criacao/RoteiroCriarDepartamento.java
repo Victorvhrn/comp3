@@ -16,7 +16,7 @@ public class RoteiroCriarDepartamento {
 		try {
 			DMDepartamento dm = new DMDepartamento();
 			resultado = (ArrayList<Departamento>) dm.selectByCampo("sigla", sigla);
-			System.out.println(resultado.get(0).getNome());
+
 			if(resultado.isEmpty()){
 				Departamento depto = new Departamento(nome, sigla);
 				dm.insert(depto);
