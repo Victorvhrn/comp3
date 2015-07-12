@@ -13,7 +13,6 @@ import mapeadores.DMDepartamento;
 public class RoteiroCriarDepartamento {
 	public void execute(String nome, String sigla) throws NomeNotFoundException, SiglaNotFoundException, BancoException, SiglaAlreadyExistsException{
 		ArrayList<Departamento> resultado = new ArrayList<Departamento>();
-		
 		try {
 			DMDepartamento dm = new DMDepartamento();
 			resultado = (ArrayList<Departamento>) dm.selectByCampo("sigla", sigla);
