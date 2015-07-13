@@ -72,7 +72,7 @@ public class CPF {
 		return iguais;
 	}
 	
-	public static CPF fromString(String digitos) throws Exception{
+	public static CPF fromString(String digitos) throws CPFInvalidoException, CPFIncompletoException{
 		int[] arrayDigitos = new int[digitos.length()];
 		
 		for (int i = 0; i < arrayDigitos.length; i++) {

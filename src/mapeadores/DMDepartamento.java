@@ -10,10 +10,6 @@ import entidades.Departamento;
 
 public class DMDepartamento extends AbstractMapper<Departamento> {
 
-	public DMDepartamento() throws SQLException {
-		super();
-	}
-
 	@Override
 	public void insert(Departamento depto) throws SQLException {
 		open();
