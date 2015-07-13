@@ -1,5 +1,3 @@
-<%@ page import="entidades.value_objects.CursoVO" %>
-<%@ page import="entidades.value_objects.DepartamentoVO" %>
 <%@ page import="java.util.Collection" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
