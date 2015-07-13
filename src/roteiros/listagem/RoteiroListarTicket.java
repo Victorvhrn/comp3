@@ -24,3 +24,4 @@ public class RoteiroListarTicket implements RoteiroListagem<Ticket> {
 		return resultado;
 	}
 }
+

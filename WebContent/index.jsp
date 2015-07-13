@@ -4,12 +4,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Criando refeição</title>
+<title>Gerenciador do Restaurante Universitário</title>
 </head>
 <body>
-	Estamos em manutenção. Tente novamente mais tarde.
-	<form action="CriarRefeicao" method="post">
-	
-
-</body>
+<a href="ListarDepartamento">Gerenciar Departamentos <br>
+<a href="ListarConsumidor">Gerenciar Consumidores <br>
+<a href="ListarCurso">Gerenciar Cursos<br>
+<a href="CriarRefeicao">Gerenciar Refeição<br>
+</body></a>
 </html>

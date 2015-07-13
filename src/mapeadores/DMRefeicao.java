@@ -1,3 +1,4 @@
+
 package mapeadores;
 
 import java.sql.PreparedStatement;
@@ -59,7 +60,7 @@ public class DMRefeicao extends AbstractMapper<Refeicao> {
 			int id = rs.getInt("id");
 			Turno turno;
 			switch (rs.getString("turno")) {
-			case "Manhã":
+			case "Manhï¿½":
 				turno = Turno.MANHA;
 				break;
 			case "Tarde":
@@ -87,7 +88,7 @@ public class DMRefeicao extends AbstractMapper<Refeicao> {
 		ResultSet rs = stmt.executeQuery();
 		Turno turno;
 		switch (rs.getString("turno")) {
-		case "Manhã":
+		case "Manhï¿½":
 			turno = Turno.MANHA;
 			break;
 		case "Tarde":
@@ -112,3 +113,4 @@ public class DMRefeicao extends AbstractMapper<Refeicao> {
 	}
 
 }
+

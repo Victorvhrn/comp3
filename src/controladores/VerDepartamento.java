@@ -1,3 +1,4 @@
+
 package controladores;
 
 import java.io.IOException;
@@ -18,4 +19,5 @@ public class VerDepartamento extends HttpServlet {
 
 	
 	}
+
 }

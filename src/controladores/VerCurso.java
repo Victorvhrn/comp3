@@ -20,4 +20,5 @@ public class VerCurso extends HttpServlet {
 
 	
 	}
+
 }

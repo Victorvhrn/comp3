@@ -1,3 +1,4 @@
+
 package roteiros.criacao;
 
 public class RoteiroCriarCurso {
@@ -11,3 +12,4 @@ public class RoteiroCriarCurso {
 		 */
 	}
 }
+>>>>>>> 43bd4e7836329cf1cbfe3d69e9ae2c565c6612aa

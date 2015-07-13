@@ -10,3 +10,4 @@ public class RoteiroListarFuncionario implements RoteiroListagem<Funcionario>{
 		return null;
 	}
 }
+

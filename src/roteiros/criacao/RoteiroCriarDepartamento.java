@@ -1,3 +1,4 @@
+
 package roteiros.criacao;
 
 import java.sql.SQLException;
@@ -31,3 +32,4 @@ public class RoteiroCriarDepartamento {
 		}
 	}
 }
+

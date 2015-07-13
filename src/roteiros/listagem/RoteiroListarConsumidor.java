@@ -10,3 +10,4 @@ public class RoteiroListarConsumidor implements RoteiroListagem<Consumidor> {
 		return null;
 	}
 }
+

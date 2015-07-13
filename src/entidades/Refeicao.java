@@ -1,3 +1,4 @@
+
 package entidades;
 
 import controladores.ccu.exceptions.DescricaoNotFoundException;

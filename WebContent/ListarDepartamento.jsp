@@ -1,3 +1,4 @@
+<%@page import="java.util.ArrayList"%>
 <%@ page import="java.util.Collection" %>
 <%@ page import="entidades.Departamento" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -15,29 +16,40 @@
 
 	<form action="ListarDepartamento" method="post">
 		<table width="80%">
+
+		<% String erro = (String) request.getAttribute("mensagem");
+		   if(erro != null){%>
+			<%=erro %>   
+		   
+		<%} else{%>
 		  <tr>
+		  	<th>&nbsp </th>
 		    <th>Sigla</th>
 		    <th>Nome</th>
 		  </tr>
 		  
 		  <%
-			  try{
-				  Collection<Departamento> departamentosDisponiveis = (Collection<Departamento>)request.getAttribute("departamentos");
-				  for (Departamento depti: departamentosDisponiveis){
+
+			  
+				  ArrayList<Departamento> departamentosDisponiveis = (ArrayList<Departamento>)request.getAttribute("departamentos");
+				  for (Departamento depti: departamentosDisponiveis)
+				  {
 		  %>
 			  <tr align="center">
-			    <td><input type="radio" name='sigla' value='<%=depti.getSigla()%>'><%=depti.getSigla()%></td>
+			    <td><input type = "radio" name = "id" value = "<%=depti.getId()%>"></td>
+			    <td><%=depti.getSigla()%></td>
 			    <td><%=depti.getNome()%></td>
 			  </tr>
-		  <%
-				  }
-			  }catch(Exception e){ }
-		  %>
+		  <%}%>
+		  	
 		</table>
 
 		<input type="submit" name ="acaoListar" value = "Criar">
-		<input type="submit" name ="acaoListar" value = "Atualizar">
-		<input type="submit" name ="acaoListar" value = "Ver">
+		
+		
+		<% }%>
+		<br><input type="submit" name ="acaoListar" value = "Voltar">
+
 	</form>
 </body>
 

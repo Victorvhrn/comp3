@@ -1,3 +1,4 @@
+
 package mapeadores;
 
 import java.sql.PreparedStatement;
@@ -88,3 +89,4 @@ public class DMDepartamento extends AbstractMapper<Departamento> {
 		return result;
 	}
 }
+

@@ -24,3 +24,4 @@ public class RoteiroListarDepartamento implements RoteiroListagem<Departamento>{
 		return resultado;
 	}
 }
+
