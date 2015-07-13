@@ -10,10 +10,13 @@ public abstract class AbstractMapper<T> {
 	protected Connection connection;
 	
 	
-	public AbstractMapper() throws SQLException{
+	public AbstractMapper(){
+	}
+	
+	public void open() throws SQLException{
 		connection = Connector.getConnection();
 	}
-		
+	
 	public abstract void insert(T elemento) throws SQLException;
 	
 	public abstract void update(int id,T elemento) throws SQLException;
