@@ -78,7 +78,7 @@ public class testeFuncional extends DBTestCase{
 		IDataSet dadosSetBanco = getConnection().createDataSet();
 		int rowCount = dadosSetBanco.getTable("departamento").getRowCount();
 		
-		assertEquals(0, rowCount);
+		assertEquals(1, rowCount);
 	}
 
 	
@@ -90,7 +90,7 @@ public class testeFuncional extends DBTestCase{
 	//depois da operação
 	protected DatabaseOperation getTearDownOperation() throws Exception{
 		//return DatabaseOperation.DELETE_ALL;	
-		return DatabaseOperation.REFRESH;
+		return DatabaseOperation.NONE;
 	}
 	
 	//@Override
