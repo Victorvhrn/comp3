@@ -62,7 +62,7 @@ public class testeFuncional extends DBTestCase{
 		
 		Assertion.assertEquals(dadosEsperados, dadosNoBanco);
 	}
-	*/
+	
 	
 	public void testRegistroBanco() throws Exception{
 		IDataSet dadosSetBanco = getConnection().createDataSet();
@@ -73,12 +73,12 @@ public class testeFuncional extends DBTestCase{
 		
 		Assertion.assertEquals(dadosEsperados, dadosNoBanco);
 	}
-	
+	*/
 	public void testQuantidadeRegistroTabela() throws Exception{
 		IDataSet dadosSetBanco = getConnection().createDataSet();
 		int rowCount = dadosSetBanco.getTable("departamento").getRowCount();
 		
-		assertEquals(1, rowCount);
+		assertEquals(0, rowCount);
 	}
 
 	
@@ -89,7 +89,8 @@ public class testeFuncional extends DBTestCase{
 	
 	//depois da operação
 	protected DatabaseOperation getTearDownOperation() throws Exception{
-		return DatabaseOperation.DELETE_ALL;		
+		//return DatabaseOperation.DELETE_ALL;	
+		return DatabaseOperation.REFRESH;
 	}
 	
 	//@Override
