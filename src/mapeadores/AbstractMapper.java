@@ -7,7 +7,9 @@ import java.util.Collection;
 
 import controladores.ccu.exceptions.CPFIncompletoException;
 import controladores.ccu.exceptions.CPFInvalidoException;
+import controladores.ccu.exceptions.DescricaoNotFoundException;
 import controladores.ccu.exceptions.NomeNotFoundException;
+import controladores.ccu.exceptions.OpcaoVeganNotFoundException;
 
 public abstract class AbstractMapper<T> {
 	
@@ -38,7 +40,7 @@ public abstract class AbstractMapper<T> {
 	
 	public abstract T selectById(int id) throws SQLException, CPFInvalidoException, CPFIncompletoException, NomeNotFoundException;
 	
-	public abstract Collection<T> selectByCampo(String campo, String valor) throws SQLException;
+	public abstract Collection<T> selectByCampo(String campo, String valor) throws SQLException, DescricaoNotFoundException, OpcaoVeganNotFoundException;
 	
 	public void close() throws SQLException{
 		connection.close();

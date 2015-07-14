@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import controladores.ccu.exceptions.DescricaoNotFoundException;
+import controladores.ccu.exceptions.OpcaoVeganNotFoundException;
 import entidades.Refeicao;
 import entidades.Turno;
 
@@ -42,12 +44,20 @@ public class DMRefeicao extends AbstractMapper<Refeicao> {
 
 	@Override
 	public void update(int id, Refeicao elemento) throws SQLException {
+		open();
+		String sqlUpdate= "update refeicao set turno = ?, descricao = ? opcao_vegan= ? where id= ?" ;
+		PreparedStatement stmt = connection.prepareStatement(sqlUpdate);
+		Turno t = elemento.getTurno();
+	    String descricao = elemento.getDescricao();
+	    String opcao = elemento.getOpcaoVegan();
+		stmt.setString(1,t.getNome());
+		stmt.setString(2,descricao);
+		stmt.setString(3,opcao);
+		close();
+		
 	}
 
-	@Override
-	public void delete(Refeicao elemento) {
-
-	}
+	
 
 	@Override
 	public Collection<Refeicao> selectAll() throws SQLException {
@@ -60,7 +70,7 @@ public class DMRefeicao extends AbstractMapper<Refeicao> {
 			int id = rs.getInt("id");
 			Turno turno;
 			switch (rs.getString("turno")) {
-			case "Manhï¿½":
+			case "Manhã":
 				turno = Turno.MANHA;
 				break;
 			case "Tarde":
@@ -88,7 +98,7 @@ public class DMRefeicao extends AbstractMapper<Refeicao> {
 		ResultSet rs = stmt.executeQuery();
 		Turno turno;
 		switch (rs.getString("turno")) {
-		case "Manhï¿½":
+		case "Manhã":
 			turno = Turno.MANHA;
 			break;
 		case "Tarde":
@@ -108,8 +118,38 @@ public class DMRefeicao extends AbstractMapper<Refeicao> {
 
 	@Override
 	public Collection<Refeicao> selectByCampo(String campo, String valor)
-			throws SQLException {
-		return null;
+			throws SQLException, DescricaoNotFoundException, OpcaoVeganNotFoundException {
+		open();
+		String sqlColection = "select * from refeicao where ? = ?";
+		PreparedStatement stmt = connection.prepareStatement(sqlColection);
+		stmt.setString(1, campo);
+		stmt.setString(2,valor);
+		ResultSet rs = stmt.executeQuery();
+		Collection <Refeicao> result = new ArrayList<Refeicao>();
+		Turno t = null;
+		
+		while(rs.next()){
+			switch (rs.getString("turno")){
+			
+			case "Manhã":
+			   t = Turno.MANHA;
+			   break;
+			case "Noite":
+				t = Turno.NOITE;
+				break;
+			case "Tarde":
+				t = Turno.TARDE;
+			 break;
+			 
+			}
+			String descricao = rs.getString("descricao");
+			String opcao = rs.getString("opcao_vegan");
+			result.add(new Refeicao(t,descricao,opcao));
+		}
+		close();
+		
+		
+		return result;
 	}
 
 }

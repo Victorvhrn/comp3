@@ -31,9 +31,9 @@
 		  </tr>
 		  
 		  <%
-				ArrayList<Departamento> departamentosDisponiveis = new ArrayList<Departamento>();//(ArrayList<Departamento>)request.getAttribute("departamentos");
-				departamentosDisponiveis.add(new Departamento(1,"Departamento de Ciência da Computação","DCC"));
-				departamentosDisponiveis.add(new Departamento(2,"Departamento de Tecnologias e Linguagens","DTL"));
+				ArrayList<Departamento> departamentosDisponiveis = (ArrayList<Departamento>)request.getAttribute("departamentos");
+				//departamentosDisponiveis.add(new Departamento(1,"Departamento de Ciência da Computação","DCC"));
+				//departamentosDisponiveis.add(new Departamento(2,"Departamento de Tecnologias e Linguagens","DTL"));
 		  		for (Departamento depti: departamentosDisponiveis)
 				{
 					  
