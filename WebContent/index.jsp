@@ -4,12 +4,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Gerenciador do Restaurante Universitário</title>
+<title>Sistema Gerenciador do Restaurante Universitário</title>
 </head>
 <body>
+<center><b>Olá, bem vindo!</b></center>
+<form action="index" method="post">
 <a href="ListarDepartamento">Gerenciar Departamentos <br>
 <a href="ListarConsumidor">Gerenciar Consumidores <br>
 <a href="ListarCurso">Gerenciar Cursos<br>
-<a href="CriarRefeicao">Gerenciar Refeição<br>
+<a href="ListarRefeicao">Gerenciar Refeição<br>
+<a href="ListarTicket">Gerenciar Ticket<br>
+</form>
 </body></a>
 </html>

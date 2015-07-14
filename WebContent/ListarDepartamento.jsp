@@ -1,3 +1,4 @@
+<%@page import="javax.sound.midi.SysexMessage"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page import="java.util.Collection" %>
 <%@ page import="entidades.Departamento" %>
@@ -7,7 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Listando departamentos</title>
+<title>Lista de departamentos</title>
 </head>
 
 <body>
@@ -18,6 +19,7 @@
 		<table width="80%">
 
 		<% String erro = (String) request.getAttribute("mensagem");
+			
 		   if(erro != null){%>
 			<%=erro %>   
 		   
@@ -29,11 +31,12 @@
 		  </tr>
 		  
 		  <%
-
-			  
-				  ArrayList<Departamento> departamentosDisponiveis = (ArrayList<Departamento>)request.getAttribute("departamentos");
-				  for (Departamento depti: departamentosDisponiveis)
-				  {
+				ArrayList<Departamento> departamentosDisponiveis = new ArrayList<Departamento>();//(ArrayList<Departamento>)request.getAttribute("departamentos");
+				departamentosDisponiveis.add(new Departamento(1,"Departamento de Ciência da Computação","DCC"));
+				departamentosDisponiveis.add(new Departamento(2,"Departamento de Tecnologias e Linguagens","DTL"));
+		  		for (Departamento depti: departamentosDisponiveis)
+				{
+					  
 		  %>
 			  <tr align="center">
 			    <td><input type = "radio" name = "id" value = "<%=depti.getId()%>"></td>
@@ -43,13 +46,15 @@
 		  <%}%>
 		  	
 		</table>
-
-		<input type="submit" name ="acaoListar" value = "Criar">
-		
+		<br>
+		<center>
+		<td><input type="submit" name ="acaoListar" value = "Criar"></td>
+		<td><input type="submit" name ="acaoListar" value = "Atualizar"></td>
+		<td><input type="submit" name ="acaoListar" value = "Ver"></td>
 		
 		<% }%>
-		<br><input type="submit" name ="acaoListar" value = "Voltar">
-
+		<td><input type="submit" name ="acaoListar" value = "Voltar"></td>
+		</center>
 	</form>
 </body>
 

@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import controladores.ccu.exceptions.BancoException;
 import entidades.Departamento;
+import jdk.nashorn.internal.ir.RuntimeNode.Request;
 import roteiros.listagem.RoteiroListarDepartamento;
 
 @WebServlet("/ListarDepartamento")
@@ -62,6 +63,9 @@ public class ListarDepartamento extends HttpServlet {
 				
 				arg0.setAttribute("departamentos",dps);
 				rd.forward(arg0, arg1);	
+		}else if(acao.equals("Voltar")){
+			
+			arg0.getRequestDispatcher("index").forward(arg0, arg1);
 		}
 	
 	}

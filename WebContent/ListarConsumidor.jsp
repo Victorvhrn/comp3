@@ -1,3 +1,6 @@
+<%@page import="entidades.CPF"%>
+<%@page import="entidades.Titulo"%>
+<%@page import="entidades.Sexo"%>
 <%@ page import="java.util.Collection" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="entidades.Consumidor" %>
@@ -14,60 +17,59 @@
 
 <body>
 
-<%! public String[] getHeaders(){
-		return new String[]{"","Nome","Matricula","Ano Ingresso", "Sexo","CPF", "Departamento","Curso" };
-	}
-
-	public Collection<String> getValuesConsumidor(Consumidor consumidori){
-		Collection<String> results = new ArrayList<String>();
-		results.add("<input type='radio' name ='cpf' value = '"+consumidori.getCpf().toString()+"'>");
-		results.add(consumidori.getNome());
-		results.add(""+consumidori.getMatricula());
-		results.add(""+consumidori.getAnoIngresso());
-		results.add(consumidori.getSexo().toString());
-		results.add(consumidori.getCpf().toString());
-		try{
-			Aluno alunoi = (Aluno)consumidori;
-			results.add(alunoi.getCurso().getDepartamento().getSigla());
-			results.add(alunoi.getCurso().getSigla());
-		}catch (Exception e){
-			Funcionario funcionarioi = (Funcionario)consumidori;
-			results.add(funcionarioi.getDepartamento().getSigla());
-			results.add("-");
-		}
-		return results;
-	}
+<%! 
 
 %>
 
 <%@include file="messagePage.jsp" %>
 
 	<form action="ListarConsumidor" method="post">
-		<input type="submit" name ="acaoListar" value = "Atualizar">
-		<input type="submit" name ="acaoListar" value = "Ver">
+		
+		<table width="80%">
+		<% String erro = (String) request.getAttribute("mensagem");
+			
+		   if(erro != null){%>
+			<%=erro %>   
+		   
+		<%} else{%>
+		  <tr>
+		 	<th>&nbsp </th>
+		 	<th>Nome </th>
+		 	<th>Matricula </th>
+		 	<th>Ano de Ingresso</th>
+		 	<th>Sexo</th>
+		 	<th>Título</th>
+		 	<th>CPF</th>
+		  </tr>
+		  		  <%
+		  		  
+		  		  ArrayList<Consumidor> consumidoresDisponiveis = new ArrayList<Consumidor>();//(ArrayList<Consumidor>)request.getAttribute("consumidores");
+		  		  consumidoresDisponiveis.add(new Consumidor(1, "Racicley",2011785171,2011,Sexo.MASCULINO,Titulo.ESPECIALIZACAO,CPF.fromString("11111111111")));
+		  		  consumidoresDisponiveis.add(new Consumidor(2, "Maria",2011785160,2011,Sexo.FEMININO,Titulo.DOUTORADO,CPF.fromString("22222222222")));
+		  		  
+				  for (Consumidor consumidori: consumidoresDisponiveis)
+				  {
+				  %>
+				  <tr align="center">
+				  <td><input type = "radio" name = "id" value = "<%=consumidori.getId()%>"></td>
+				  <td><%=consumidori.getNome()%></td>
+				  <td><%=consumidori.getMatricula()%></td>
+				  <td><%=consumidori.getAnoIngresso()%></td>
+				  <td><%=consumidori.getSexo()%></td>
+				  <td><%=consumidori.getTitulo()%></td>
+				  <td><%=consumidori.getCpf()%></td>
+				  </tr>	 
+				  <%}%>
+		</table>
+		<br>		
+		<center>  
 		<input type="submit" name ="acaoListar" value = "Criar Aluno">
 		<input type="submit" name ="acaoListar" value = "Criar Funcionario">
-				
-		<table width="80%">
-		  <tr>
-		  <% for (String headeri: getHeaders()){ %>
-		  <th><%=headeri %></th>
-		  <%}%>
-		  </tr>
-		  <%
-			  try{
-				  Collection<Consumidor> consumidoresDisponiveis = (Collection<Consumidor>)request.getAttribute("consumidores");
-				  for (Consumidor consumidori: consumidoresDisponiveis){
-					  %> <tr align="center"> <%
-					  for (String headeri: getValuesConsumidor(consumidori)){ %>
-					  <td><%=headeri %></td>
-					  <%}
-					  %> </tr> <%
-				  }
-			  }catch(Exception e){ }
-		  %>
-		  
-		</table>
+		<input type="submit" name ="acaoListar" value = "Atualizar">
+		<input type="submit" name ="acaoListar" value = "Ver">
+		<%}%>		
+		<td><input type="submit" name ="acaoListar" value = "Voltar"></td>
+		</center>
 	</form>
 </body>
 

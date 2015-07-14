@@ -1,4 +1,4 @@
-package interfaces;
+package controladores;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class index
+ * Servlet implementation class ListarRefeicoes
  */
-@WebServlet({ "/", "/index" })
-public class index extends HttpServlet {
+@WebServlet("/ListarRefeicao")
+public class ListarRefeicao extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public index() {
+    public ListarRefeicao() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -26,8 +26,8 @@ public class index extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doPost(request, response);
+		request.getRequestDispatcher("ListarRefeicao.jsp").forward(request, response);
+		
 	}
 
 	/**
@@ -35,7 +35,7 @@ public class index extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.getRequestDispatcher("index.jsp").forward(request, response);
+		//doGet(request, response);
 	}
 
 }

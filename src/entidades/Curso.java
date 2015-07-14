@@ -20,6 +20,7 @@ public class Curso {
 		this.id = id;
 		this.nome = nome;
 		this.sigla = sigla;
+		this.departamento = departamento;
 	}
 	
 	public int getId() {
