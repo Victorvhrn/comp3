@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataset>
-	<departamento name ="id" value = "1" />
-	<departamento name ="nome" value = "computacao" />
-	<departamento name ="sigla" value = "dcc" />
+	<departamento nome = "teste" sigla = "T" />
 </dataset>
