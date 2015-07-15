@@ -84,7 +84,7 @@ public class DMTicket extends AbstractMapper<Ticket> {
 			String opcaoVegan = rs.getString("r.opcao_vegan");
 			Turno turno;
 			switch (rs.getString("r.turno")) {
-			case "Manh�":
+			case "Manhã":
 				turno = Turno.MANHA;
 				break;
 			case "Tarde":

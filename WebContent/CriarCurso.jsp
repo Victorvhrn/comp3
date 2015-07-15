@@ -1,3 +1,5 @@
+<%@page import="entidades.Departamento"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page import="java.util.Collection" %>
 
 
@@ -9,21 +11,35 @@
 <title>Criar curso</title>
 </head>
 <%@include file="messagePage.jsp" %>
-<% Collection<Departamento> departamentosDisponiveis = (Collection<Departamento>)request.getAttribute("departamentosDisponiveis"); %>
 
+<%  
+	String erro = (String) request.getAttribute("mensagem");
+	
+	if(erro != null)
+	{ %>
+		<%=erro %>
+   <%}else
+   	  {
+ 		
+ 		ArrayList<Departamento> departamentosDisponiveis = new ArrayList<Departamento>();
+ 		departamentosDisponiveis = (ArrayList<Departamento>)request.getAttribute("departamentos");%>
+		
 <body>
 	<form action="CriarCurso" method="post">
 	Nome : <input type="text" name ="nome" value = "">
 	Sigla : <input type="text" name ="sigla" value = "">
 	Departamento : <select name ="departamento">
 	<option value=""></option>
-	<% for(Departamento dptoi : departamentosDisponiveis){ %>
+	<% for(Departamento dptoi : departamentosDisponiveis)
+	   { %>
 		<option value="<%=dptoi.getSigla()%>"><%=dptoi.getNome()%></option>
 	<% } %>
 	</select>
 	<br>
 	<input type="submit" name="acaoCriar" value="Criar">
 	<input type="submit" name="acaoCriar" value="Cancelar">
+	<%} %>
+
 	</form>
 </body>
 

@@ -9,7 +9,7 @@ public class SiglaAlreadyExistsException extends Exception {
 	private String sigla;
 
 	public SiglaAlreadyExistsException(String sigla) {
-		super("Já existe uma sigla igual cadastrada: "+sigla);
+		super("JÃ¡ existe uma sigla igual cadastrada: "+sigla);
 		this.sigla = sigla;
 	}
 	

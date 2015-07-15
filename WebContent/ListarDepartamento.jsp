@@ -2,7 +2,7 @@
 <%@page import="java.util.ArrayList"%>
 <%@ page import="java.util.Collection" %>
 <%@ page import="entidades.Departamento" %>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -31,10 +31,8 @@
 		  </tr>
 		  
 		  <%
-				ArrayList<Departamento> departamentosDisponiveis = new ArrayList<Departamento>();//(ArrayList<Departamento>)request.getAttribute("departamentos");
-				departamentosDisponiveis.add(new Departamento(1,"Departamento de Ciência da Computação","DCC"));
-				departamentosDisponiveis.add(new Departamento(2,"Departamento de Tecnologias e Linguagens","DTL"));
-		  		for (Departamento depti: departamentosDisponiveis)
+				ArrayList<Departamento> departamentosDisponiveis = (ArrayList<Departamento>)request.getAttribute("departamentos");
+				for (Departamento depti: departamentosDisponiveis)
 				{
 					  
 		  %>

@@ -24,6 +24,13 @@ public class CriarCurso extends HttpServlet {
 			request.getRequestDispatcher("WEB-INF/CriarCurso.jsp").forward(request,response);
 		}
 	}
+	
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doPost(req, resp);
+	}
 
 	private void criarCurso(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String nome = (String) request.getParameter("nome");

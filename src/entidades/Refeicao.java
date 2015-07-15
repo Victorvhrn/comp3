@@ -39,6 +39,14 @@ public class Refeicao {
 		return opcaoVegan;
 	}
 	
+	public void setDescricao(String descricao) throws DescricaoNotFoundException {
+		this.descricao = validarDescricao(descricao);
+	}
+	
+	public void setOpcaoVegan(String opcaoVegan) throws OpcaoVeganNotFoundException {
+		this.opcaoVegan = validarOpcaoVegan(opcaoVegan);
+	}
+	
 	private String validarDescricao(String descricao) throws DescricaoNotFoundException {
 		if(descricao == null || descricao.equals("")){
 			throw new DescricaoNotFoundException();

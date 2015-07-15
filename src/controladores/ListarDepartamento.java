@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import controladores.ccu.exceptions.BancoException;
 import entidades.Departamento;
-import jdk.nashorn.internal.ir.RuntimeNode.Request;
 import roteiros.listagem.RoteiroListarDepartamento;
 
 @WebServlet("/ListarDepartamento")
