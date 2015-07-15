@@ -39,7 +39,7 @@ public class DMCurso extends AbstractMapper<Curso> {
 		sql += "inner join departamento on c.departamento_id = d.id";
 		PreparedStatement stmt = connection.prepareStatement(sql);
 		ResultSet rs = stmt.executeQuery();
-		ArrayList<Curso> result = new ArrayList<>();
+		ArrayList<Curso> result = new ArrayList<Curso>();
 		while(rs.next()){
 			int id = rs.getInt("c.id");
 			String nome = rs.getString("c.nome");

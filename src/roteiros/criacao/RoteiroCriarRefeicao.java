@@ -13,7 +13,7 @@ public class RoteiroCriarRefeicao {
 	public void execute(String turno, String descricao, String opcaoVegan) throws DescricaoNotFoundException, OpcaoVeganNotFoundException, BancoException{
 		Turno t = null;
 		switch (turno) {
-		case "Manhã":
+		case "Manha":
 			t = Turno.MANHA;
 			break;
 		case "Tarde":

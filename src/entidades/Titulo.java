@@ -1,7 +1,7 @@
 package entidades;
 
 public enum Titulo {
-	ESPECIALIZACAO("Especializa��o"), MESTRADO("Mestrado"), DOUTORADO("Doutorado");
+	ESPECIALIZACAO("Especializacao"), MESTRADO("Mestrado"), DOUTORADO("Doutorado");
 	
 	private String titulo; 
 	

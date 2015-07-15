@@ -1,7 +1,7 @@
 package entidades;
 
 public enum Turno {
-	MANHA("Manh�",0.5,3), TARDE("Tarde",6,1), NOITE("Noite",6,1);
+	MANHA("Manha",0.5,3), TARDE("Tarde",6,1), NOITE("Noite",6,1);
 	private String nome;
 	private double valorAluno, valorFuncionario;
 	

@@ -45,7 +45,7 @@ public class DMRefeicao extends AbstractMapper<Refeicao> {
 	@Override
 	public void update(int id, Refeicao elemento) throws SQLException {
 		open();
-		String sqlUpdate= "update refeicao set turno = ?, descricao = ? opcao_vegan= ? where id= ?" ;
+		String sqlUpdate= "update refeicao set turno = ?, descricao = ?, opcao_vegan= ? where id= ?" ;
 		PreparedStatement stmt = connection.prepareStatement(sqlUpdate);
 		Turno t = elemento.getTurno();
 	    String descricao = elemento.getDescricao();
@@ -53,8 +53,9 @@ public class DMRefeicao extends AbstractMapper<Refeicao> {
 		stmt.setString(1,t.getNome());
 		stmt.setString(2,descricao);
 		stmt.setString(3,opcao);
+		stmt.setInt(4, id);
+		stmt.execute();
 		close();
-		
 	}
 
 	
@@ -70,7 +71,7 @@ public class DMRefeicao extends AbstractMapper<Refeicao> {
 			int id = rs.getInt("id");
 			Turno turno;
 			switch (rs.getString("turno")) {
-			case "Manh�":
+			case "Manha":
 				turno = Turno.MANHA;
 				break;
 			case "Tarde":
@@ -99,7 +100,7 @@ public class DMRefeicao extends AbstractMapper<Refeicao> {
 		ResultSet rs = stmt.executeQuery();
 		Turno turno;
 		switch (rs.getString("turno")) {
-		case "Manh�":
+		case "Manha":
 			turno = Turno.MANHA;
 			break;
 		case "Tarde":
@@ -132,7 +133,7 @@ public class DMRefeicao extends AbstractMapper<Refeicao> {
 		while(rs.next()){
 			switch (rs.getString("turno")){
 			
-			case "Manh�":
+			case "Manha":
 			   t = Turno.MANHA;
 			   break;
 			case "Noite":

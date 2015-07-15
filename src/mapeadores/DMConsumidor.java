@@ -42,7 +42,7 @@ public class DMConsumidor extends AbstractMapper<Consumidor> {
 		}
 		switch (consumidor.getTitulo()) {
 		case ESPECIALIZACAO:
-			stmt.setString(5,"Especialização");
+			stmt.setString(5,"Especializacao");
 			break;
 		case MESTRADO:
 			stmt.setString(5,"Mestrado");
@@ -168,7 +168,7 @@ public class DMConsumidor extends AbstractMapper<Consumidor> {
 			}
 			Titulo titulo = null;
 			switch (rs.getString("cn.titulo")) {
-				case "Especialização":
+				case "Especializacao":
 					titulo = Titulo.ESPECIALIZACAO;
 					break;
 				case "Mestrado":
@@ -228,7 +228,7 @@ public class DMConsumidor extends AbstractMapper<Consumidor> {
 			}
 			Titulo titulo = null;
 			switch (rs.getString("cn.titulo")) {
-				case "Especialização":
+				case "Especializacao":
 					titulo = Titulo.ESPECIALIZACAO;
 					break;
 				case "Mestrado":

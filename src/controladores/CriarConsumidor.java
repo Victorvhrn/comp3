@@ -50,11 +50,11 @@ public class CriarConsumidor extends HttpServlet {
         Sexo sexo = (request.getAttribute("sexo").equals("masculino")) ? Sexo.MASCULINO : Sexo.FEMININO;
         Titulo titulo;
         String cpf = (String) request.getAttribute("cpf");
-        if(request.getAttribute("titulo").equals("especializacao"))
+        if(request.getAttribute("titulo").equals("Especializacao"))
         {
         	titulo = Titulo.ESPECIALIZACAO;
         }
-        else if(request.getAttribute("titulo").equals("mestrado"))
+        else if(request.getAttribute("titulo").equals("Mestrado"))
         {
         	titulo = Titulo.MESTRADO;
         }

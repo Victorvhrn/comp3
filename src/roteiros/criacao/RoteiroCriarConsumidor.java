@@ -27,7 +27,7 @@ public class RoteiroCriarConsumidor {
 			Sexo sex = (sexo.equals("Masculino")) ? Sexo.MASCULINO : Sexo.FEMININO;
 			Titulo t = null;
 			switch (titulo) {
-			case "Especialização":
+			case "Especializacao":
 				t = Titulo.ESPECIALIZACAO;
 				break;
 			case "Mestrado":

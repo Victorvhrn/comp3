@@ -65,7 +65,7 @@ public class DMTicket extends AbstractMapper<Ticket> {
 			Sexo sexo			= rs.getString("c.sexo") == "M" ? Sexo.MASCULINO : Sexo.FEMININO;
 			Titulo titulo;
 			switch (rs.getString("c.titulo")) {
-			case "Especializa��o":
+			case "Especializacao":
 				titulo = Titulo.ESPECIALIZACAO;
 				break;
 			case "Mestrado":
@@ -121,7 +121,7 @@ public class DMTicket extends AbstractMapper<Ticket> {
 		Sexo sexo			= rs.getString("c.sexo") == "M" ? Sexo.MASCULINO : Sexo.FEMININO;
 		Titulo titulo;
 		switch (rs.getString("c.titulo")) {
-		case "Especializa��o":
+		case "Especializacao":
 			titulo = Titulo.ESPECIALIZACAO;
 			break;
 		case "Mestrado":
@@ -140,7 +140,7 @@ public class DMTicket extends AbstractMapper<Ticket> {
 		String opcaoVegan = rs.getString("r.opcao_vegan");
 		Turno turno;
 		switch (rs.getString("r.turno")) {
-		case "Manh�":
+		case "Manha":
 			turno = Turno.MANHA;
 			break;
 		case "Tarde":
