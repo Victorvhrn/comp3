@@ -13,8 +13,13 @@ import org.dbunit.ext.h2.H2DataTypeFactory;
 import org.dbunit.operation.DatabaseOperation;
 
 import java.io.FileInputStream;
+import java.util.ArrayList;
+import java.util.Collection;
 
 import org.junit.Before;
+
+import entidades.Departamento;
+import mapeadores.DMDepartamento;
 import roteiros.criacao.RoteiroCriarDepartamento;
 import roteiros.listagem.RoteiroListarDepartamento;
 
@@ -31,30 +36,33 @@ public class testeListarDepartamento extends DBTestCase{
 	        
 	}
 	
-	public void testCriarDepartamento() throws Exception{		
+	public void testListarDepartamento() throws Exception{	
+		
+		//insere elemento na tabela
 		RoteiroCriarDepartamento Departamento = new RoteiroCriarDepartamento();
 		Departamento.execute("teste", "T");
+		Departamento.execute("testfse", "Tsf");
 		
-		IDataSet dadosSetBanco = getConnection().createDataSet();
-		ITable dadosNoBanco = dadosSetBanco.getTable("departamento");
 		
-		//remove coluna da tabela.
-		ITable filteredTable = DefaultColumnFilter.excludedColumnsTable(dadosNoBanco, new String[]{"id"});
+		RoteiroListarDepartamento ListarDepartamento = new RoteiroListarDepartamento();
 		
-		IDataSet dadosSetEsperado = new FlatXmlDataSetBuilder().build(new FileInputStream("xml/dataset.xml"));
-		ITable dadosEsperados = dadosSetEsperado.getTable("departamento");
+		Collection<Departamento> departamento;
+		departamento = ListarDepartamento.execute(); // executa a listagem.
+				
 		
-		Assertion.assertEquals(dadosEsperados, filteredTable);
+		assertEquals(false, departamento.isEmpty());
 	}
 	
-	public void testQuantidadeRegistroTabela() throws Exception{
+	public void testQuantidadeElementosListadosNaTabela() throws Exception{
 		RoteiroCriarDepartamento Departamento = new RoteiroCriarDepartamento();
 		Departamento.execute("teste", "T");
 		
-		IDataSet dadosSetBanco = getConnection().createDataSet();
-		int rowCount = dadosSetBanco.getTable("departamento").getRowCount();
+		RoteiroListarDepartamento ListarDepartamento = new RoteiroListarDepartamento();
 		
-		assertEquals(1, rowCount);
+		Collection<Departamento> departamento;
+		departamento = ListarDepartamento.execute(); // executa a listagem.		
+		
+		assertEquals(1, departamento.size());
 	}
 
 	
