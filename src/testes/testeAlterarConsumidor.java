@@ -22,13 +22,13 @@ import java.util.ArrayList;
 
 import org.junit.Before;
 
-import entidades.Departamento;
-import entidades.Ticket;
-import roteiros.criacao.RoteiroCriarTicket;
-import roteiros.alteracao.RoteiroAlterarTicket;
+import entidades.Consumidor;
+import entidades.Consumidor;
+import roteiros.criacao.RoteiroCriarConsumidor;
+import roteiros.alteracao.RoteiroAlterarConsumidor;
 import mapeadores.AbstractMapper;
 
-public class testeAlterarTicket extends DBTestCase{
+public class testeAlterarConsumidor extends DBTestCase{
 	
 	protected Connection connection;	
 	private FlatXmlDataSet bancoCarregado;
@@ -55,12 +55,12 @@ public class testeAlterarTicket extends DBTestCase{
 		connection.close();
 	}
 	
-	public void testCriarDepartamento() throws Exception{		
-		RoteiroCriarTicket criarTicket = new RoteiroCriarTicket();
-		criarTicket.execute(false, 10, 20);
+	public void testCriarConsumidor() throws Exception{		
+		RoteiroCriarConsumidor criarConsumidor = new RoteiroCriarConsumidor();
+		criarConsumidor.execute("Teste", 1, 2012, "M", "PHD", "15146485481", 1, 2);
 		
 		open();
-		String sql = "select id from ticket";
+		String sql = "select id from consumidor";
 		PreparedStatement stmt = connection.prepareStatement(sql);
 		ResultSet rs = stmt.executeQuery();
 		ArrayList<Integer> result = new ArrayList<Integer>();
@@ -74,8 +74,8 @@ public class testeAlterarTicket extends DBTestCase{
 		
 		
 		
-		RoteiroAlterarTicket alterarTicket = new RoteiroAlterarTicket();
-		alterarTicket.execute(ultimoId, true);
+		RoteiroAlterarConsumidor alterarConsumidor = new RoteiroAlterarConsumidor();
+		alterarConsumidor.execute(1, "Funciona", 201348, "m", 2010);
 		
 		IDataSet dadosSetBanco = getConnection().createDataSet();
 		ITable dadosNoBanco = dadosSetBanco.getTable("ticket");

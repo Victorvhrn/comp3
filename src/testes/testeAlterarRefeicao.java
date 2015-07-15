@@ -22,13 +22,13 @@ import java.util.ArrayList;
 
 import org.junit.Before;
 
-import entidades.Departamento;
-import entidades.Ticket;
-import roteiros.criacao.RoteiroCriarTicket;
-import roteiros.alteracao.RoteiroAlterarTicket;
+import entidades.Refeicao;
+import entidades.Refeicao;
+import roteiros.criacao.RoteiroCriarRefeicao;
+import roteiros.alteracao.RoteiroAlterarRefeicao;
 import mapeadores.AbstractMapper;
 
-public class testeAlterarTicket extends DBTestCase{
+public class testeAlterarRefeicao extends DBTestCase{
 	
 	protected Connection connection;	
 	private FlatXmlDataSet bancoCarregado;
@@ -56,11 +56,11 @@ public class testeAlterarTicket extends DBTestCase{
 	}
 	
 	public void testCriarDepartamento() throws Exception{		
-		RoteiroCriarTicket criarTicket = new RoteiroCriarTicket();
-		criarTicket.execute(false, 10, 20);
+		RoteiroCriarRefeicao criarRefeicao = new RoteiroCriarRefeicao();
+		criarRefeicao.execute("manhã", "teste", "nenhuma");
 		
 		open();
-		String sql = "select id from ticket";
+		String sql = "select id from refeicao";
 		PreparedStatement stmt = connection.prepareStatement(sql);
 		ResultSet rs = stmt.executeQuery();
 		ArrayList<Integer> result = new ArrayList<Integer>();
@@ -74,8 +74,8 @@ public class testeAlterarTicket extends DBTestCase{
 		
 		
 		
-		RoteiroAlterarTicket alterarTicket = new RoteiroAlterarTicket();
-		alterarTicket.execute(ultimoId, true);
+		RoteiroAlterarRefeicao alterarRefeicao = new RoteiroAlterarRefeicao();
+		alterarRefeicao.execute(ultimoId, "qualquerCoisa", "frango");
 		
 		IDataSet dadosSetBanco = getConnection().createDataSet();
 		ITable dadosNoBanco = dadosSetBanco.getTable("ticket");
