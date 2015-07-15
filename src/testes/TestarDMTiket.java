@@ -49,7 +49,7 @@ public class TestarDMTiket {
     	 dm.update(1, t2);
      }
     @Test
-     public void testarselect() throws SQLException{
+     public void testarselect() throws SQLException, CPFInvalidoException, CPFIncompletoException, NomeNotFoundException{
     	 dm.selectById(1);
     	 
      }

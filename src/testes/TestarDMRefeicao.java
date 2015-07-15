@@ -42,7 +42,7 @@ public class TestarDMRefeicao {
 		
 	}
 	
-	public void SelectCampoRefeicao() throws SQLException{
+	public void SelectCampoRefeicao() throws SQLException, DescricaoNotFoundException, OpcaoVeganNotFoundException{
 		dm.selectByCampo("Descrição", "Arroz com ovo");
 	}
 	
