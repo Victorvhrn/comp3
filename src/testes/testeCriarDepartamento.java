@@ -33,7 +33,7 @@ public class testeCriarDepartamento extends DBTestCase{
 	
 	public void testCriarDepartamento() throws Exception{		
 		RoteiroCriarDepartamento Departamento = new RoteiroCriarDepartamento();
-		Departamento.execute("tesfte", "T");
+		Departamento.execute("teste", "T");
 		
 		IDataSet dadosSetBanco = getConnection().createDataSet();
 		ITable dadosNoBanco = dadosSetBanco.getTable("departamento");

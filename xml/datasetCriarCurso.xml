@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataset>
-	<departamento pago = "false" consumidor_id = "10" refeicao_id = "20"/>
+	<departamento nome = "Ciencia da computacao" sigla = "cc" departamentoId = "1"/>
 </dataset>

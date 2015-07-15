@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataset>
-	<departamento pago = "false" consumidor_id = "10" refeicao_id = "20"/>
+	<departamento nome = "Teste" matricula = "1" anoIngresso = "2012" sexo = "M" titulo = "PHD" cpf = "15146485481" cursoId = "1" departamentoId = "2"/>
 </dataset>

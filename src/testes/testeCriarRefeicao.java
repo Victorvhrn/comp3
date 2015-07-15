@@ -31,8 +31,8 @@ public class testeCriarRefeicao extends DBTestCase{
 	}
 	
 	public void testCriarCurso() throws Exception{		
-		RoteiroCriarRefeicao Departamento = new RoteiroCriarRefeicao();
-		//Departamento.execute();
+		RoteiroCriarRefeicao Refeicao = new RoteiroCriarRefeicao();
+		Refeicao.execute("manhã", "teste", "nenhuma");
 		
 		IDataSet dadosSetBanco = getConnection().createDataSet();
 		ITable dadosNoBanco = dadosSetBanco.getTable("refeicao");
@@ -47,8 +47,8 @@ public class testeCriarRefeicao extends DBTestCase{
 	}
 	
 	public void testQuantidadeRegistroTabela() throws Exception{
-		RoteiroCriarRefeicao Departamento = new RoteiroCriarRefeicao();
-		//Departamento.execute("teste", "T");
+		RoteiroCriarRefeicao Refeicao = new RoteiroCriarRefeicao();
+		Refeicao.execute("manhã", "teste", "nenhuma");
 		
 		IDataSet dadosSetBanco = getConnection().createDataSet();
 		int rowCount = dadosSetBanco.getTable("refeicao").getRowCount();
@@ -59,8 +59,6 @@ public class testeCriarRefeicao extends DBTestCase{
 	
 	//Antes de executar o teste.
 	protected DatabaseOperation getSetUpOperation() throws Exception{
-		//RoteiroCriarDepartamento Departamento = new RoteiroCriarDepartamento();
-		//Departamento.execute("teste", "T");
 		return DatabaseOperation.REFRESH;		
 	}
 	

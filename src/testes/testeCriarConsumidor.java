@@ -31,8 +31,8 @@ public class testeCriarConsumidor extends DBTestCase{
 	}
 	
 	public void testCriarDepartamento() throws Exception{		
-		RoteiroCriarConsumidor Departamento = new RoteiroCriarConsumidor();
-		//Departamento.execute("teste", "T");
+		RoteiroCriarConsumidor Consumidor = new RoteiroCriarConsumidor();
+		Consumidor.execute("Teste", 1, 2012, "M", "PHD", "15146485481", 1, 2);
 		
 		IDataSet dadosSetBanco = getConnection().createDataSet();
 		ITable dadosNoBanco = dadosSetBanco.getTable("consumidor");
@@ -47,8 +47,8 @@ public class testeCriarConsumidor extends DBTestCase{
 	}
 	
 	public void testQuantidadeRegistroTabela() throws Exception{
-		RoteiroCriarConsumidor Departamento = new RoteiroCriarConsumidor();
-		//Departamento.execute("teste", "T");
+		RoteiroCriarConsumidor Consumidor = new RoteiroCriarConsumidor();
+		Consumidor.execute("Teste", 1, 2012, "M", "PHD", "15146485481", 1, 2);
 		
 		IDataSet dadosSetBanco = getConnection().createDataSet();
 		int rowCount = dadosSetBanco.getTable("consumidor").getRowCount();
@@ -59,8 +59,6 @@ public class testeCriarConsumidor extends DBTestCase{
 	
 	//Antes de executar o teste.
 	protected DatabaseOperation getSetUpOperation() throws Exception{
-		//RoteiroCriarDepartamento Departamento = new RoteiroCriarDepartamento();
-		//Departamento.execute("teste", "T");
 		return DatabaseOperation.REFRESH;		
 	}
 	
