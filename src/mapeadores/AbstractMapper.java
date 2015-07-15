@@ -40,7 +40,7 @@ public abstract class AbstractMapper<T> {
 	
 	public abstract T selectById(int id) throws SQLException, CPFInvalidoException, CPFIncompletoException, NomeNotFoundException;
 	
-	public abstract Collection<T> selectByCampo(String campo, String valor) throws SQLException, DescricaoNotFoundException, OpcaoVeganNotFoundException;
+	public abstract Collection<T> selectByCampo(String campo, String valor) throws SQLException, DescricaoNotFoundException, OpcaoVeganNotFoundException, CPFInvalidoException, CPFIncompletoException, NomeNotFoundException;
 	
 	public void close() throws SQLException{
 		connection.close();
