@@ -40,7 +40,7 @@ public class testeCriarCurso extends DBTestCase{
 		//remove coluna da tabela.
 		ITable filteredTable = DefaultColumnFilter.excludedColumnsTable(dadosNoBanco, new String[]{"id"});
 		
-		IDataSet dadosSetEsperado = new FlatXmlDataSetBuilder().build(new FileInputStream("xml/dataset.xml"));
+		IDataSet dadosSetEsperado = new FlatXmlDataSetBuilder().build(new FileInputStream("xml/datasetCriarCurso.xml"));
 		ITable dadosEsperados = dadosSetEsperado.getTable("curso");
 		
 		Assertion.assertEquals(dadosEsperados, filteredTable);
@@ -75,7 +75,7 @@ public class testeCriarCurso extends DBTestCase{
 
 	@Override
 	protected IDataSet getDataSet() throws Exception {
-		bancoCarregado = new FlatXmlDataSetBuilder().build( new FileInputStream("xml/dataset.xml"));
+		bancoCarregado = new FlatXmlDataSetBuilder().build( new FileInputStream("xml/datasetCriarCurso.xml"));
 		return bancoCarregado;
 	}
 

@@ -41,7 +41,7 @@ public class testeCriarDepartamento extends DBTestCase{
 		//remove coluna da tabela.
 		ITable filteredTable = DefaultColumnFilter.excludedColumnsTable(dadosNoBanco, new String[]{"id"});
 		
-		IDataSet dadosSetEsperado = new FlatXmlDataSetBuilder().build(new FileInputStream("xml/dataset.xml"));
+		IDataSet dadosSetEsperado = new FlatXmlDataSetBuilder().build(new FileInputStream("xml/datasetCriarDepartamento.xml"));
 		ITable dadosEsperados = dadosSetEsperado.getTable("departamento");
 		
 		Assertion.assertEquals(dadosEsperados, filteredTable);
