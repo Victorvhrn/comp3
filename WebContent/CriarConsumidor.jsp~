@@ -1,4 +1,3 @@
-<%@page import="java.util.ArrayList"%>
 <%@page import="entidades.Curso"%>
 <%@page import="java.util.Collection"%>
 <%@page import="entidades.Departamento"%>
@@ -44,26 +43,21 @@
 		<td><input type = "text" name = "cpf" value =""></td>
 	</tr>
 	<tr>
-	<% Departamento dp1 = new Departamento(1,"Departamento de Ciência da Computação","DCC"); 
-	ArrayList<Departamento> listaDepartamentos = new ArrayList<Departamento>();
-	listaDepartamentos.add(new Departamento(1,"Departamento de Ciência da Computação","DCC"));
-	//listaDepartamentos = (ArrayList<Departamento>) request.getAttribute("departamentos");
-	  for (Departamento dept: listaDepartamentos){
+	<% Collection<Departamento> departamento = (Collection<Departamento>) request.getAttribute("departamento");
+	  for (Departamento dept: departamento){
 	%>
 	<td><input type="radio" name="tipo" value="funcionario">Funcionario</td>
 	 <select>
-  		<option name ="departamento" value ="<%=dept.getId()%>" ><%=dept.getNome()%></option>
+  		<option name ="departamento" value ="<%dept.getId();%>" ><%dept.getNome(); %></option>
 	 </select> 
 	</tr>
 	<%} %>
-	<%ArrayList<Curso> cursos = new ArrayList<Curso>();
-	  //cursos = (ArrayList<Curso>) request.getAttribute("cursos");
-		cursos.add(new Curso(1,"Ciência da Computação","CC",dp1));
+	<%Collection<Curso> cursos = (Collection<Curso>) request.getAttribute("curso"); 
 	  for (Curso curso: cursos){
 	%>
 	<td><input type="radio" name="tipo" value="aluno">Aluno</td>
 	 <select>
-  		<option name ="curso" value ="<%=curso.getId()%>" ><%=curso.getNome()%></option>
+  		<option name ="curso" value ="<%curso.getId();%>" ><%curso.getNome(); %></option>
 	 </select> 
 	</tr>
 	<%}%>

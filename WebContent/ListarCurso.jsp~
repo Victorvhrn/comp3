@@ -17,7 +17,6 @@
 <%@include file="messagePage.jsp" %>
 
 	<form action="ListarCurso" method="post">
-	
 		<table width="80%">
 		<%String erro = (String) request.getAttribute("mensagem");
 			
@@ -25,8 +24,6 @@
 		%>
 		<%= erro %>
 		<%}else { %>
-		  <b><center>Lista de Cursos</center></b>
-		  <br>
 		  <tr>
 		    <th>&nbsp;</th>
 		    <th>Nome</th>
@@ -34,11 +31,12 @@
 		  </tr>
 		  
 		  <%
+				  Departamento dp1 = new Departamento(1,"Departamento de Ciência da Computação","DCC");
+		  		  Departamento dp2 = new Departamento(2,"Departamento de Tecnologias e Linguagens","DTL");
+				  ArrayList<Curso> cursosDisponiveis = new ArrayList<Curso>();//(ArrayList<Curso>)request.getAttribute("cursos");
+				  cursosDisponiveis.add(new Curso(1,"Ciência da Computação","CC",dp1));
+				  cursosDisponiveis.add(new Curso(2,"Matemática","MAT",dp2));
 				  
-				  ArrayList<Curso> cursosDisponiveis = new ArrayList<Curso>(); 
-				  cursosDisponiveis = (ArrayList<Curso>)request.getAttribute("cursos");
-				  
-				
 				  for (Curso cursoi: cursosDisponiveis){
 					  
 		  %>
@@ -54,6 +52,8 @@
 		<br>
 		<center>
 		<td><input type="submit" name ="acaoListar" value = "Criar"></td>
+		<td><input type="submit" name ="acaoListar" value = "Atualizar"></td>
+		<td><input type="submit" name ="acaoListar" value = "Ver"></td>
 		<% }%>
 		<td><input type="submit" name ="acaoListar" value = "Voltar"></td>
 		</center>

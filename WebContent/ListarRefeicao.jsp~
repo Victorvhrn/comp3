@@ -27,9 +27,9 @@
 		  </tr>
 		  
 		  <%
-				ArrayList<Refeicao> refeicoesDisponiveis = new ArrayList<Refeicao>();
-		  		refeicoesDisponiveis = (ArrayList<Refeicao>) request.getAttribute("refeicoes");
-			
+				ArrayList<Refeicao> refeicoesDisponiveis = new ArrayList<Refeicao>();//(ArrayList<Refeicao>) request.getAttribute("refeicoes");
+				refeicoesDisponiveis.add(new Refeicao(1,Turno.TARDE,"arroz e feijão","grama"));
+				refeicoesDisponiveis.add(new Refeicao(1,Turno.NOITE,"lasanha","capim"));
 		  		for (Refeicao refeicoes: refeicoesDisponiveis)
 				{
 					  
@@ -46,7 +46,7 @@
 		<br>
 		<center>
 		<td><input type="submit" name ="acaoListar" value = "Criar"></td>
-		<td><input type="submit" name ="acaoListar" value = "Alterar"></td>
+		<td><input type="submit" name ="acaoListar" value = "Ver"></td>
 		
 		<% }%>
 		<td><input type="submit" name ="acaoListar" value = "Voltar"></td>

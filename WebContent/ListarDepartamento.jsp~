@@ -19,7 +19,7 @@
 		<table width="80%">
 
 		<% String erro = (String) request.getAttribute("mensagem");
-		  
+			
 		   if(erro != null){%>
 			<%=erro %>   
 		   
@@ -31,9 +31,9 @@
 		  </tr>
 		  
 		  <%
-				ArrayList<Departamento> departamentosDisponiveis = new ArrayList<Departamento>();
-				departamentosDisponiveis = (ArrayList<Departamento>)request.getAttribute("departamentos");
-			
+				ArrayList<Departamento> departamentosDisponiveis = (ArrayList<Departamento>)request.getAttribute("departamentos");
+				//departamentosDisponiveis.add(new Departamento(1,"Departamento de Ciência da Computação","DCC"));
+				//departamentosDisponiveis.add(new Departamento(2,"Departamento de Tecnologias e Linguagens","DTL"));
 		  		for (Departamento depti: departamentosDisponiveis)
 				{
 					  
@@ -49,6 +49,8 @@
 		<br>
 		<center>
 		<td><input type="submit" name ="acaoListar" value = "Criar"></td>
+		<td><input type="submit" name ="acaoListar" value = "Atualizar"></td>
+		<td><input type="submit" name ="acaoListar" value = "Ver"></td>
 		
 		<% }%>
 		<td><input type="submit" name ="acaoListar" value = "Voltar"></td>

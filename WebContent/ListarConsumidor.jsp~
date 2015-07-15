@@ -43,8 +43,9 @@
 		  </tr>
 		  		  <%
 		  		  
-		  		  ArrayList<Consumidor> consumidoresDisponiveis = new ArrayList<Consumidor>();			          consumidoresDisponiveis = (ArrayList<Consumidor>)request.getAttribute("consumidores");
-		  		  
+		  		  ArrayList<Consumidor> consumidoresDisponiveis = new ArrayList<Consumidor>();//(ArrayList<Consumidor>)request.getAttribute("consumidores");
+		  		  consumidoresDisponiveis.add(new Consumidor(1, "Racicley",2011785171,2011,Sexo.MASCULINO,Titulo.ESPECIALIZACAO,CPF.fromString("11111111111")));
+		  		  consumidoresDisponiveis.add(new Consumidor(2, "Maria",2011785160,2011,Sexo.FEMININO,Titulo.DOUTORADO,CPF.fromString("22222222222")));
 		  		  
 				  for (Consumidor consumidori: consumidoresDisponiveis)
 				  {
@@ -62,8 +63,10 @@
 		</table>
 		<br>		
 		<center>  
-		<input type="submit" name ="acaoListar" value = "Criar">
+		<input type="submit" name ="acaoListar" value = "Criar Aluno">
+		<input type="submit" name ="acaoListar" value = "Criar Funcionario">
 		<input type="submit" name ="acaoListar" value = "Atualizar">
+		<input type="submit" name ="acaoListar" value = "Ver">
 		<%}%>		
 		<td><input type="submit" name ="acaoListar" value = "Voltar"></td>
 		</center>

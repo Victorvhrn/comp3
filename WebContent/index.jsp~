@@ -7,9 +7,7 @@
 <title>Sistema Gerenciador do Restaurante Universitário</title>
 </head>
 <body>
-<center><b>Sistema Gerenciador do Restaurante Universitário</b></center>
-
-<b>Menu</b>
+<center><b>Olá, bem vindo!</b></center>
 <form action="index" method="post">
 <a href="ListarDepartamento">Gerenciar Departamentos <br>
 <a href="ListarConsumidor">Gerenciar Consumidores <br>
