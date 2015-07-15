@@ -31,36 +31,34 @@ public class testeCriarTicket extends DBTestCase{
 	}
 	
 	public void testCriarCurso() throws Exception{		
-		RoteiroCriarTicket Departamento = new RoteiroCriarTicket();
-		//Departamento.execute();
+		RoteiroCriarTicket Ticket = new RoteiroCriarTicket();
+		Ticket.execute(false, 1, 1);
 		
 		IDataSet dadosSetBanco = getConnection().createDataSet();
-		ITable dadosNoBanco = dadosSetBanco.getTable("departamento");
+		ITable dadosNoBanco = dadosSetBanco.getTable("ticket");
 		
 		//remove coluna da tabela.
 		ITable filteredTable = DefaultColumnFilter.excludedColumnsTable(dadosNoBanco, new String[]{"id"});
 		
-		IDataSet dadosSetEsperado = new FlatXmlDataSetBuilder().build(new FileInputStream("xml/dataset.xml"));
-		ITable dadosEsperados = dadosSetEsperado.getTable("departamento");
+		IDataSet dadosSetEsperado = new FlatXmlDataSetBuilder().build(new FileInputStream("xml/datasetCriarTicket.xml"));
+		ITable dadosEsperados = dadosSetEsperado.getTable("ticket");
 		
 		Assertion.assertEquals(dadosEsperados, filteredTable);
 	}
 	
 	public void testQuantidadeRegistroTabela() throws Exception{
-		RoteiroCriarTicket Departamento = new RoteiroCriarTicket();
-		//Departamento.execute("teste", "T");
+		RoteiroCriarTicket Ticket = new RoteiroCriarTicket();
+		Ticket.execute(false, 1, 1);
 		
 		IDataSet dadosSetBanco = getConnection().createDataSet();
-		int rowCount = dadosSetBanco.getTable("departamento").getRowCount();
+		int rowCount = dadosSetBanco.getTable("ticket").getRowCount();
 		
 		assertEquals(1, rowCount);
 	}
 
 	
 	//Antes de executar o teste.
-	protected DatabaseOperation getSetUpOperation() throws Exception{
-		//RoteiroCriarDepartamento Departamento = new RoteiroCriarDepartamento();
-		//Departamento.execute("teste", "T");
+	protected DatabaseOperation getSetUpOperation() throws Exception{		
 		return DatabaseOperation.REFRESH;		
 	}
 	
@@ -77,7 +75,7 @@ public class testeCriarTicket extends DBTestCase{
 
 	@Override
 	protected IDataSet getDataSet() throws Exception {
-		bancoCarregado = new FlatXmlDataSetBuilder().build( new FileInputStream("xml/dataset.xml"));
+		bancoCarregado = new FlatXmlDataSetBuilder().build( new FileInputStream("xml/datasetCriarTicket.xml"));
 		return bancoCarregado;
 	}
 

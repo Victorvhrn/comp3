@@ -35,13 +35,13 @@ public class testeCriarConsumidor extends DBTestCase{
 		//Departamento.execute("teste", "T");
 		
 		IDataSet dadosSetBanco = getConnection().createDataSet();
-		ITable dadosNoBanco = dadosSetBanco.getTable("departamento");
+		ITable dadosNoBanco = dadosSetBanco.getTable("consumidor");
 		
 		//remove coluna da tabela.
 		ITable filteredTable = DefaultColumnFilter.excludedColumnsTable(dadosNoBanco, new String[]{"id"});
 		
 		IDataSet dadosSetEsperado = new FlatXmlDataSetBuilder().build(new FileInputStream("xml/dataset.xml"));
-		ITable dadosEsperados = dadosSetEsperado.getTable("departamento");
+		ITable dadosEsperados = dadosSetEsperado.getTable("consumidor");
 		
 		Assertion.assertEquals(dadosEsperados, filteredTable);
 	}
@@ -51,7 +51,7 @@ public class testeCriarConsumidor extends DBTestCase{
 		//Departamento.execute("teste", "T");
 		
 		IDataSet dadosSetBanco = getConnection().createDataSet();
-		int rowCount = dadosSetBanco.getTable("departamento").getRowCount();
+		int rowCount = dadosSetBanco.getTable("consumidor").getRowCount();
 		
 		assertEquals(1, rowCount);
 	}
