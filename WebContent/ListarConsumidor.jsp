@@ -1,3 +1,5 @@
+<%@page import="entidades.Curso"%>
+<%@page import="entidades.Departamento"%>
 <%@page import="entidades.CPF"%>
 <%@page import="entidades.Titulo"%>
 <%@page import="entidades.Sexo"%>
@@ -40,10 +42,15 @@
 		 	<th>Sexo</th>
 		 	<th>Título</th>
 		 	<th>CPF</th>
+		 	<th>Departamento/Curso</th>
+		 	
 		  </tr>
 		  		  <%
 		  		  
-		  		  ArrayList<Consumidor> consumidoresDisponiveis = new ArrayList<Consumidor>();			          consumidoresDisponiveis = (ArrayList<Consumidor>)request.getAttribute("consumidores");
+		  		  ArrayList<Consumidor> consumidoresDisponiveis = new ArrayList<Consumidor>();			        
+		  		  consumidoresDisponiveis = (ArrayList<Consumidor>)request.getAttribute("consumidores");
+		  		 
+		  		  
 		  		  
 		  		  
 				  for (Consumidor consumidori: consumidoresDisponiveis)
@@ -57,6 +64,11 @@
 				  <td><%=consumidori.getSexo()%></td>
 				  <td><%=consumidori.getTitulo()%></td>
 				  <td><%=consumidori.getCpf()%></td>
+				  <td><%if(consumidori instanceof Aluno){%>
+				  		<%= ((Aluno)consumidori).getCurso().getSigla()%>
+				  		<%}else{%>
+				  		<%=((Funcionario)consumidori).getDepartamento().getSigla()%></td>
+				  		<%} %>
 				  </tr>	 
 				  <%}%>
 		</table>

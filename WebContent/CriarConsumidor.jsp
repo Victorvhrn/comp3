@@ -44,10 +44,9 @@
 		<td><input type = "text" name = "cpf" value =""></td>
 	</tr>
 	<tr>
-	<% Departamento dp1 = new Departamento(1,"Departamento de Ciência da Computação","DCC"); 
+	<%  
 	ArrayList<Departamento> listaDepartamentos = new ArrayList<Departamento>();
-	listaDepartamentos.add(new Departamento(1,"Departamento de Ciência da Computação","DCC"));
-	//listaDepartamentos = (ArrayList<Departamento>) request.getAttribute("departamentos");
+	listaDepartamentos = (ArrayList<Departamento>) request.getAttribute("departamentos");
 	  for (Departamento dept: listaDepartamentos){
 	%>
 	<td><input type="radio" name="tipo" value="funcionario">Funcionario</td>
@@ -57,8 +56,8 @@
 	</tr>
 	<%} %>
 	<%ArrayList<Curso> cursos = new ArrayList<Curso>();
-	  //cursos = (ArrayList<Curso>) request.getAttribute("cursos");
-		cursos.add(new Curso(1,"Ciência da Computação","CC",dp1));
+	  cursos = (ArrayList<Curso>) request.getAttribute("cursos");
+		
 	  for (Curso curso: cursos){
 	%>
 	<td><input type="radio" name="tipo" value="aluno">Aluno</td>
