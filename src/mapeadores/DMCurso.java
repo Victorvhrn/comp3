@@ -55,7 +55,23 @@ public class DMCurso extends AbstractMapper<Curso> {
 
 	@Override
 	public Curso selectById(int id) throws SQLException {
-		return null;
+		open();
+		String sql 	= "select c.*,d.* from curso as c inner join departamento as d ";
+		sql			+= "on c.departamento_id = d.id where id = ?";
+		PreparedStatement stmt = connection.prepareStatement(sql);
+		stmt.setInt(1, id);
+		ResultSet rs = stmt.executeQuery();
+		Curso result = null;
+		while(rs.next()){
+			String nome = rs.getString("c.nome");
+			String sigla = rs.getString("c.sigla");
+			int departamentoId = rs.getInt("d.id");
+			String departamentoNome = rs.getString("d.nome");
+			String departamentoSigla = rs.getString("d.sigla");
+			result = new Curso(id,nome,sigla,new Departamento(departamentoId, departamentoNome, departamentoSigla));
+		}
+		close();
+		return result;
 	}
 
 	@Override

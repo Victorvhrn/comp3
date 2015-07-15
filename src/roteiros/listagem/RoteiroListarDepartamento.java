@@ -19,6 +19,7 @@ public class RoteiroListarDepartamento implements RoteiroListagem<Departamento>{
 			resultado = (ArrayList<Departamento>) dmDepto.selectAll();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
+			System.out.println(e.getMessage());
 			throw new BancoException();
 		}
 		return resultado;

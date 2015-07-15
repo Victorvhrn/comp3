@@ -95,6 +95,7 @@ public class DMRefeicao extends AbstractMapper<Refeicao> {
 		open();
 		String sql = "select * from refeicao where id = ?";
 		PreparedStatement stmt = connection.prepareStatement(sql);
+		stmt.setInt(1, id);
 		ResultSet rs = stmt.executeQuery();
 		Turno turno;
 		switch (rs.getString("turno")) {

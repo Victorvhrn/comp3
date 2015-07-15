@@ -11,7 +11,6 @@ public class Departamento {
 	
 	public Departamento(String nome, String sigla) throws NomeNotFoundException, SiglaNotFoundException {
 		// TODO Auto-generated constructor stub
-		System.out.println("Construtor: "+nome+" "+sigla);
 		this.nome = validarNome(nome);
 		this.sigla = validarSigla(sigla);
 	}
