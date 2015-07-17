@@ -40,8 +40,11 @@ width:40px;
 
 <body>
 <div align="center" class="jumbotron">
-<h1>Departamento</h1>
+<h1>Sistema RU</h1>
 </div>
+<h4 align="center">Departamento</h4>
+
+
 
 <%@include file="messagePage.jsp" %>
 
@@ -55,9 +58,9 @@ width:40px;
 		   
 		<%} else{%>
 		  <tr>
-		  	<th>&nbsp </th>
-		    <th>Sigla</th>
-		    <th>Nome</th>
+		  	<th>&nbsp; </th>
+		    <th>&nbsp; Sigla</th>
+		    <th>&nbsp; &nbsp;Nome</th>
 		  </tr>
 		  
 		  <%

@@ -60,6 +60,8 @@ function redirecionar(nome){
 		id = document.getElementById(nome);
 	location.href = id.name;
 }
+
+
 </script>
 
 <div align="center" class="jumbotron">

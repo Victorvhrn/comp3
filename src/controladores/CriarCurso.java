@@ -8,6 +8,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.h2.engine.SysProperties;
+
+import controladores.ccu.exceptions.BancoException;
+import controladores.ccu.exceptions.NomeNotFoundException;
+import controladores.ccu.exceptions.SiglaAlreadyExistsException;
+import controladores.ccu.exceptions.SiglaNotFoundException;
+import roteiros.criacao.RoteiroCriarCurso;
+
 
 @WebServlet("/CriarCurso")
 public class CriarCurso extends HttpServlet {
@@ -17,7 +25,13 @@ public class CriarCurso extends HttpServlet {
 		String acao = (String) request.getParameter("acaoCriar");
 		
 		if (acao.equals("Criar")){
-			criarCurso(request,response);
+			try {
+				criarCurso(request,response);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				request.getRequestDispatcher("index.jsp").forward(request,response);
+			}
+			request.getRequestDispatcher("ListarCurso").forward(request,response);
 		}else if(acao.equals("Cancelar")){
 			request.getRequestDispatcher("ListarCurso").forward(request,response);
 		}else{
@@ -32,9 +46,13 @@ public class CriarCurso extends HttpServlet {
 		doPost(req, resp);
 	}
 
-	private void criarCurso(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	private void criarCurso(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, BancoException, NomeNotFoundException, SiglaNotFoundException, SiglaAlreadyExistsException {
 		String nome = (String) request.getParameter("nome");
 		String sigla = (String) request.getParameter("sigla");
+		int departamentoId = Integer.parseInt(request.getParameter("departamento_id"));
+		
+		RoteiroCriarCurso rcc = new RoteiroCriarCurso();
+		rcc.execute(nome, sigla, departamentoId);
 		
 //		try {
 //			//RoteiroCriarCurso rcc = new RoteiroCriarCurso(String nome, String sigla);

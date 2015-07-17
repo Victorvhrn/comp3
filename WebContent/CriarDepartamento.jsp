@@ -32,8 +32,9 @@ width:40px;
 <%@include file="messagePage.jsp" %>
 <body>
 <div align="center" class="jumbotron">
-<h1>Criar Departamento</h1>
+<h1>Sistema RU</h1>
 </div>
+<h4 align="center">Criar Departamento</h4></h5>
 
 <table align="center">
 

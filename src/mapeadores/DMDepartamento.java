@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import org.h2.engine.SysProperties;
+
 import entidades.Departamento;
 
 public class DMDepartamento extends AbstractMapper<Departamento> {
@@ -64,6 +66,7 @@ public class DMDepartamento extends AbstractMapper<Departamento> {
 		PreparedStatement stmt = connection.prepareStatement(sql);
 		stmt.setInt(1, id);
 		ResultSet rs = stmt.executeQuery();
+		rs.next();
 		Departamento dpto = new Departamento( rs.getInt("id"),
 					rs.getString("nome"),rs.getString("sigla"));
 		close();

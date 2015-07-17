@@ -35,21 +35,23 @@ public class DMCurso extends AbstractMapper<Curso> {
 
 	@Override
 	public Collection<Curso> selectAll() throws SQLException {
-		String sql = "select c.*,d.* from curso";
-		sql += "inner join departamento on c.departamento_id = d.id";
+		open();
+		String sql = "select curso.*,departamento.* from curso ";
+		sql += "inner join departamento on curso.departamento_id = departamento.id";
 		PreparedStatement stmt = connection.prepareStatement(sql);
 		ResultSet rs = stmt.executeQuery();
-		ArrayList<Curso> result = new ArrayList<Curso>();
+		Collection<Curso> result = new ArrayList<Curso>();
 		while(rs.next()){
-			int id = rs.getInt("c.id");
-			String nome = rs.getString("c.nome");
-			String sigla = rs.getString("c.sigla");
-			int dId = rs.getInt("d.id");
-			String dNome = rs.getString("d.nome");
-			String dSigla = rs.getString("d.sigla");
+			int id = rs.getInt("curso.id");
+			String nome = rs.getString("curso.nome");
+			String sigla = rs.getString("curso.sigla");
+			int dId = rs.getInt("departamento.id");
+			String dNome = rs.getString("departamento.nome");
+			String dSigla = rs.getString("departamento.sigla");
 			Curso c = new Curso(id,nome,sigla,new Departamento(dId, dNome, dSigla));
 			result.add(c);
 		}
+		close();
 		return result;
 	}
 
@@ -78,11 +80,11 @@ public class DMCurso extends AbstractMapper<Curso> {
 	public Collection<Curso> selectByCampo(String campo, String valor)
 			throws SQLException {
 		open();
-		String sql = "select c.*,d.* from curso";
-		sql += "inner join departamento on c.departamento_id = d.id";
-		sql += "where ? = ?";
+		String sql = "select * from curso ";
+		sql += "inner join departamento on curso.departamento_id = departamento.id ";
+		sql += " where ? = ?";
 		PreparedStatement stmt = connection.prepareStatement(sql);
-		stmt.setString(1, campo);
+		stmt.setString(1, "curso."+campo);
 		stmt.setString(2,valor);
 		ResultSet rs = stmt.executeQuery();
 		ArrayList<Curso> result = new ArrayList<Curso>();
