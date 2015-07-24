@@ -4,6 +4,7 @@ import org.dbunit.DBTestCase;
 import org.dbunit.PropertiesBasedJdbcDatabaseTester;
 import org.dbunit.database.DatabaseConfig;
 import org.dbunit.dataset.IDataSet;
+import org.dbunit.dataset.ITable;
 import org.dbunit.dataset.xml.FlatXmlDataSet;
 import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
 import org.dbunit.ext.h2.H2DataTypeFactory;
@@ -25,7 +26,7 @@ public class testeListarRefeicao extends DBTestCase{
 	@Before
 	public void setUp() throws Exception {
 		 	System.setProperty( PropertiesBasedJdbcDatabaseTester.DBUNIT_DRIVER_CLASS, "org.h2.Driver" );
-	        System.setProperty( PropertiesBasedJdbcDatabaseTester.DBUNIT_CONNECTION_URL, "jdbc:h2:file:~/comp3" );
+	        System.setProperty( PropertiesBasedJdbcDatabaseTester.DBUNIT_CONNECTION_URL, "jdbc:h2:file:~/comp3-2" );
 	        System.setProperty( PropertiesBasedJdbcDatabaseTester.DBUNIT_USERNAME, "sa" );
 	        System.setProperty( PropertiesBasedJdbcDatabaseTester.DBUNIT_PASSWORD, "" );	        
 	}
@@ -34,8 +35,7 @@ public class testeListarRefeicao extends DBTestCase{
 		
 		//insere elemento na tabela
 		RoteiroCriarRefeicao Refeicao = new RoteiroCriarRefeicao();
-		Refeicao.execute("manhã", "teste", "nenhuma");
-		
+		Refeicao.execute("manhã", "teste", "nenhuma");		
 		
 		RoteiroListarRefeicao ListarRefeicao = new RoteiroListarRefeicao();
 		

@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataset>
-	<departamento turno = "Manha" descricao = "teste" opcaoVegan = "nenhuma"/>
+	<refeicao turno = "manha" descricao = "refeicao da manha" opcaoVegan = "ovo"/>
 </dataset>

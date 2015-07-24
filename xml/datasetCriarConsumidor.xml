@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataset>
-	<departamento nome = "Teste" matricula = "1" anoIngresso = "2012" sexo = "M" titulo = "PHD" cpf = "15146485481" cursoId = "1" departamentoId = "2"/>
+	<consumidor nome = "Teste" matricula = "1" anoIngresso = "2012" sexo = "M" titulo = "PHD" cpf = "15146485481"/>
 </dataset>

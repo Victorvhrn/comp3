@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataset>
-	<departamento nome = "Ciencia da computacao" sigla = "cc" departamentoId = "1"/>
+	<curso nome = "cc" sigla = "cc" />
 </dataset>
